@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volley Surselva – Teams, Trainings & Camps</title>
+<meta name="description" content="Hier findest du alle Teams von Volley Surselva und dem Beachsportclub Surselva, die wöchentlichen Trainingszeiten, unsere Camps und Turniere sowie den Buchungskalender für die Beachvolleyballfelder in Ilanz.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loader" class="loader">
+  <div class="loader-track">
+    <div class="loader-ball"><svg class="ball-icon" viewBox="0 0 200 200"><use href="#vb-ball"></use></svg></div>
+  </div>
+  <div class="loader-label i18n" data-de="Aufwärmen …" data-en="Warming up …">Aufwärmen …</div>
+</div>
+
+<svg style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
+  <defs>
+    <symbol id="vb-ball" viewBox="0 0 200 200">
+      <defs>
+        <clipPath id="vbClip"><circle cx="100" cy="100" r="96"></circle></clipPath>
+        <radialGradient id="vbShade" cx="60%" cy="36%" r="78%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"></stop>
+          <stop offset="45%" stop-color="#ffffff" stop-opacity="0.04"></stop>
+          <stop offset="75%" stop-color="#000000" stop-opacity="0"></stop>
+          <stop offset="100%" stop-color="#000000" stop-opacity="0.28"></stop>
+        </radialGradient>
+        <radialGradient id="vbShine" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+        </radialGradient>
+      </defs>
+      <g clip-path="url(#vbClip)">
+        <circle cx="100" cy="100" r="96" fill="#ffffff"></circle>
+        <g stroke="#1a2332" stroke-width="2.4" stroke-linejoin="round">
+          <path fill="#2454c4" d="M100,100 Q66.0,152.8 100.0,196.0 A96,96 0 0,1 16.9,52.0 Q71.3,44.2 100,100 Z"></path>
+          <path fill="#f5b93f" d="M100,100 Q71.3,44.2 16.9,52.0 A96,96 0 0,1 183.1,52.0 Q162.7,103.0 100,100 Z"></path>
+          <path fill="#e2611f" d="M100,100 Q162.7,103.0 183.1,52.0 A96,96 0 0,1 100.0,196.0 Q66.0,152.8 100,100 Z"></path>
+        </g>
+        <circle cx="100" cy="100" r="96" fill="url(#vbShade)"></circle>
+        <ellipse cx="70" cy="56" rx="24" ry="16" fill="url(#vbShine)" transform="rotate(-25 70 56)"></ellipse>
+      </g>
+      <circle cx="100" cy="100" r="96" fill="none" stroke="#0d1321" stroke-width="3.5"></circle>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="lang-toggle" role="group" aria-label="Sprache / Language">
+  <button class="lang-btn active" data-lang="de" type="button">DE</button>
+  <button class="lang-btn" data-lang="en" type="button">EN</button>
+</div>
+
+<header class="site-header">
+  <div class="wrap navbar">
+    <a href="#top" class="logo"><img src="images/logo/volley-surselva-logo.png" alt="Volley Surselva" class="logo-img"></a>
+    <nav class="links" aria-label="Hauptnavigation">
+      <a href="#teams">Indoor</a>
+      <a href="#beach-anlage">Beach</a>
+      <a href="#teams">Teams</a>
+      <a href="#trainingszeiten" class="i18n" data-de="Trainingszeiten" data-en="Training times">Trainingszeiten</a>
+      <a href="#events" class="i18n" data-de="Events" data-en="Events">Events</a>
+      <a href="#standorte" class="i18n" data-de="Standorte" data-en="Locations">Standorte</a>
+      <a href="#kontakt" class="i18n" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </nav>
+    <a href="#" class="btn btn-primary nav-cta book-cta i18n" data-de="Platz buchen" data-en="Book a Court">Platz buchen</a>
+    <button class="drawer-toggle" id="drawerToggle" aria-expanded="false" aria-controls="drawer" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="drawer-split">
+    <a href="#teams" class="d-indoor">Indoor</a>
+    <a href="#beach-anlage" class="d-beach">Beach</a>
+  </div>
+  <ul>
+    <li><a href="#teams">Teams</a></li>
+    <li><a href="#trainingszeiten" class="i18n" data-de="Trainingszeiten" data-en="Training times">Trainingszeiten</a></li>
+    <li><a href="#events" class="i18n" data-de="Events" data-en="Events">Events</a></li>
+    <li><a href="#standorte" class="i18n" data-de="Standorte" data-en="Locations">Standorte</a></li>
+    <li><a href="#" class="book-cta i18n" data-de="Platz buchen" data-en="Book a Court">Platz buchen</a></li>
+    <li><a href="#kontakt" class="i18n" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+  </ul>
+</div>
+
+<div class="modal-overlay" id="eventModal" aria-hidden="true">
+  <div class="modal-box event-modal-box" role="dialog" aria-modal="true" aria-label="Event Details">
+    <button class="modal-close" id="eventModalClose" aria-label="Schliessen">✕</button>
+    <div class="modal-footer">
+      <span class="event-tag-emoji" id="eventModalEmoji" style="font-size:2rem;"></span>
+      <h3 id="eventModalTitle" style="margin-top:0.6rem;"></h3>
+      <p id="eventModalDesc"></p>
+      <a href="#" id="eventModalCta" class="btn btn-primary book-cta i18n" data-de="Per WhatsApp fragen →" data-en="Ask via WhatsApp →">Per WhatsApp fragen →</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="pressModal" aria-hidden="true">
+  <div class="modal-box press-modal-box" role="dialog" aria-modal="true" aria-label="Presseerwähnung">
+    <button class="modal-close" id="pressModalClose" aria-label="Schliessen">✕</button>
+    <div class="press-modal-photo" id="pressModalPhoto"></div>
+    <div class="modal-footer">
+      <p id="pressModalCaption" style="margin:0;"></p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="teamModal" aria-hidden="true">
+  <div class="modal-box team-modal-box" role="dialog" aria-modal="true" aria-label="Team Details">
+    <button class="modal-close" id="teamModalClose" aria-label="Schliessen">✕</button>
+    <div class="team-modal-photo" id="teamModalPhoto"></div>
+    <div class="modal-footer">
+      <span class="badge" id="teamModalBadge"></span>
+      <h3 id="teamModalTitle" style="margin-top:0.6rem;"></h3>
+      <p class="sec-dek" id="teamModalMeta" style="margin-bottom:1.4rem;"></p>
+      <div class="team-modal-ctas">
+        <a id="teamModalSignupLink" class="btn btn-primary i18n" data-de="Jetzt anmelden →" data-en="Sign up now →">Jetzt anmelden →</a>
+      </div>
+      <div class="team-modal-league" id="teamModalLeagueBlock" hidden>
+        <div class="team-modal-tables">
+          <div class="team-modal-table-col">
+            <h4 class="i18n" data-de="Rangliste" data-en="Standings">Rangliste</h4>
+            <table class="team-table" id="teamModalStandings"></table>
+          </div>
+          <div class="team-modal-table-col">
+            <h4 class="i18n" data-de="Kader" data-en="Roster">Kader</h4>
+            <table class="team-table" id="teamModalRoster"></table>
+          </div>
+        </div>
+        <p class="fine" id="teamModalStand"></p>
+        <p class="fine">
+          <a id="teamModalTableLink" class="i18n" data-de="Offizielle Seite mit Live-Stand →" data-en="Official page with live status →" target="_blank" rel="noopener">Offizielle Seite mit Live-Stand →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="camp-promo" id="campPromo" role="complementary" aria-label="Camp- und Retreat-Anfrage" hidden>
+  <button class="camp-promo-close" id="campPromoClose" aria-label="Schliessen" type="button">✕</button>
+  <div class="camp-promo-ball" aria-hidden="true"><svg class="ball-icon" viewBox="0 0 200 200"><use href="#vb-ball"></use></svg></div>
+  <div class="camp-promo-body">
+    <div class="camp-promo-title i18n" data-de="Eigenes Camp oder Firmen-Retreat?" data-en="Planning your own camp or team retreat?">Eigenes Camp oder Firmen-Retreat?</div>
+    <p class="camp-promo-text i18n" data-de="Wir unterstützen euch gerne dabei, ein Gruppen-Camp oder Retreat am Beach auf die Beine zu stellen. Frag unverbindlich an." data-en="We're happy to help you put together a group camp or retreat at the beach. Just ask, no strings attached.">Wir unterstützen euch gerne dabei, ein Gruppen-Camp oder Retreat am Beach auf die Beine zu stellen. Frag unverbindlich an.</p>
+    <a href="#" id="campPromoCta" class="btn btn-primary book-cta i18n" data-de="Jetzt anfragen →" data-en="Ask now →" data-de-msg="Hallo, wir planen ein Camp bzw. Retreat am Beach für unsere Gruppe und würden uns über eure Unterstützung freuen. Könnt ihr uns mehr Infos schicken?" data-en-msg="Hi, we're planning a camp or retreat at the beach for our group and would love your support. Could you send us more info?" target="_blank" rel="noopener">Jetzt anfragen →</a>
+  </div>
+</div>
+
+<main id="top">
+
+  <section id="intro" class="reveal intro-band" style="border-top:none;">
+    <img class="intro-band-photo-bg" src="images/Beachvolleyteamsurselva.jpg" alt="Gruppenfoto Beachcamp Kids vor der Bergkulisse der Surselva">
+    <div class="intro-band-veil" aria-hidden="true"></div>
+    <div class="wrap intro-band-content">
+      <p class="lead i18n" data-de="Zwei Vereine, ein Ziel: Volleyball in der Surselva fördern. Volley Surselva und der Beachsportclub Surselva bieten wöchentliche Hallentrainings, einen eigenen Beachvolleyplatz in Ilanz und Camps für Kinder, Jugendliche und Erwachsene." data-en="Two clubs, one goal: growing volleyball in the Surselva. Volley Surselva and Beachsportclub Surselva run weekly indoor trainings, our own beach volleyball courts in Ilanz, and camps for kids, teens and adults.">Zwei Vereine, ein Ziel: Volleyball in der Surselva fördern. Volley Surselva und der Beachsportclub Surselva bieten wöchentliche Hallentrainings, einen eigenen Beachvolleyplatz in Ilanz und Camps für Kinder, Jugendliche und Erwachsene.</p>
+    </div>
+  </section>
+
+  <section id="teams" class="reveal zone-indoor">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Indoor · VBC Foppa</div>
+        <h2>Teams</h2>
+        <p class="sec-dek i18n" data-de="Sieben Gruppen, eine Halle. Alle Teams suchen laufend motivierte neue Spieler und Spielerinnen. Klick auf ein Team für Infos, Tabelle und Kader." data-en="Seven groups, one hall. All teams are always looking for motivated new players. Click a team for info, standings and roster.">Sieben Gruppen, eine Halle. Alle Teams suchen laufend motivierte neue Spieler und Spielerinnen. Klick auf ein Team für Infos, Tabelle und Kader.</p>
+      </div>
+    </div>
+    <div class="team-slider">
+      <div class="wrap team-slider-wrap">
+        <button class="team-slider-arrow team-slider-prev" id="teamPrev" aria-label="Zurück" type="button">‹</button>
+        <div class="team-slider-track" id="teamSliderTrack">
+          <button type="button" class="team-slide" data-team="damen" style="background-image:url('images/teams/damen.jpg');">
+            <span class="team-slide-badge i18n" data-de="Sucht Spielerinnen" data-en="Recruiting">Sucht Spielerinnen</span>
+            <span class="team-slide-content">
+              <span class="team-slide-cat">Damen</span>
+              <span class="team-slide-name">Volley Surselva Damen</span>
+              <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A · Di 19:30–21:15" data-en="4th league, Group A · Tue 19:30–21:15">4. Liga, Gruppe A · Di 19:30–21:15</span>
+              <span class="team-slide-more i18n" data-de="Alle Infos & Tabelle →" data-en="Full info & standings →">Alle Infos & Tabelle →</span>
+            </span>
+          </button>
+          <button type="button" class="team-slide team-slide-placeholder" data-team="herren1">
+            <span class="team-slide-badge i18n" data-de="Sucht Spieler" data-en="Recruiting">Sucht Spieler</span>
+            <span class="team-slide-badge team-slide-badge-right i18n" data-de="Foto folgt" data-en="Photo coming">Foto folgt</span>
+            <span class="team-slide-content">
+              <span class="team-slide-cat">Herren 1</span>
+              <span class="team-slide-name">Volley Surselva 1</span>
+              <span class="team-slide-meta i18n" data-de="4. Liga · Fr 20:15–22:00" data-en="4th league · Fri 20:15–22:00">4. Liga · Fr 20:15–22:00</span>
+              <span class="team-slide-more i18n" data-de="Alle Infos & Tabelle →" data-en="Full info & standings →">Alle Infos & Tabelle →</span>
+            </span>
+          </button>
+          <button type="button" class="team-slide" data-team="herren2" style="background-image:url('images/teams/herren-2.jpg');">
+            <span class="team-slide-badge i18n" data-de="Sucht Spieler" data-en="Recruiting">Sucht Spieler</span>
+            <span class="team-slide-content">
+              <span class="team-slide-cat">Herren 2</span>
+              <span class="team-slide-name">Volley Surselva 2</span>
+              <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A · Do 19:00–21:00" data-en="4th league, Group A · Thu 19:00–21:00">4. Liga, Gruppe A · Do 19:00–21:00</span>
+              <span class="team-slide-more i18n" data-de="Alle Infos & Tabelle →" data-en="Full info & standings →">Alle Infos & Tabelle →</span>
+            </span>
+          </button>
+          <button type="button" class="team-slide team-slide-placeholder" data-team="minis">
+            <span class="team-slide-badge i18n" data-de="Für Jg. 2009 u. jünger" data-en="Born 2009 or later">Für Jg. 2009 u. jünger</span>
+            <span class="team-slide-badge team-slide-badge-right i18n" data-de="Foto folgt" data-en="Photo coming">Foto folgt</span>
+            <span class="team-slide-content">
+              <span class="team-slide-cat i18n" data-de="Jugend" data-en="Youth">Jugend</span>
+              <span class="team-slide-name">Minis</span>
+              <span class="team-slide-meta i18n" data-de="Jg. 2009 u. jünger · Fr 18:00–19:30" data-en="Born 2009 or later · Fri 18:00–19:30">Jg. 2009 u. jünger · Fr 18:00–19:30</span>
+              <span class="team-slide-more i18n" data-de="Alle Infos →" data-en="Full info →">Alle Infos →</span>
+            </span>
+          </button>
+          <button type="button" class="team-slide team-slide-placeholder" data-team="juniors">
+            <span class="team-slide-badge i18n" data-de="Für Jg. 2007 u. jünger" data-en="Born 2007 or later">Für Jg. 2007 u. jünger</span>
+            <span class="team-slide-badge team-slide-badge-right i18n" data-de="Foto folgt" data-en="Photo coming">Foto folgt</span>
+            <span class="team-slide-content">
+              <span class="team-slide-cat i18n" data-de="Jugend" data-en="Youth">Jugend</span>
+              <span class="team-slide-name">Juniors</span>
+              <span class="team-slide-meta i18n" data-de="Jg. 2007 u. jünger · Fr 19:00–20:15" data-en="Born 2007 or later · Fri 19:00–20:15">Jg. 2007 u. jünger · Fr 19:00–20:15</span>
+              <span class="team-slide-more i18n" data-de="Alle Infos →" data-en="Full info →">Alle Infos →</span>
+            </span>
+          </button>
+          <button type="button" class="team-slide team-slide-placeholder" data-team="u18frauen">
+            <span class="team-slide-badge i18n" data-de="Sucht Spielerinnen" data-en="Recruiting">Sucht Spielerinnen</span>
+            <span class="team-slide-badge team-slide-badge-right i18n" data-de="Foto folgt" data-en="Photo coming">Foto folgt</span>
+            <span class="team-slide-content">
+              <span class="team-slide-cat i18n" data-de="Jugend" data-en="Youth">Jugend</span>
+              <span class="team-slide-name">U18 Frauen</span>
+              <span class="team-slide-meta i18n" data-de="U18 · Zeit folgt" data-en="U18 · Time TBA">U18 · Zeit folgt</span>
+              <span class="team-slide-more i18n" data-de="Alle Infos →" data-en="Full info →">Alle Infos →</span>
+            </span>
+          </button>
+          <button type="button" class="team-slide team-slide-placeholder" data-team="plausch">
+            <span class="team-slide-badge i18n" data-de="Für alle" data-en="Open to all">Für alle</span>
+            <span class="team-slide-badge team-slide-badge-right i18n" data-de="Foto folgt" data-en="Photo coming">Foto folgt</span>
+            <span class="team-slide-content">
+              <span class="team-slide-cat i18n" data-de="Plausch" data-en="Recreational">Plausch</span>
+              <span class="team-slide-name">Plausch Dienstag</span>
+              <span class="team-slide-meta i18n" data-de="Di · Zeit folgt" data-en="Tue · Time TBA">Di · Zeit folgt</span>
+              <span class="team-slide-more i18n" data-de="Alle Infos →" data-en="Full info →">Alle Infos →</span>
+            </span>
+          </button>
+        </div>
+        <button class="team-slider-arrow team-slider-next" id="teamNext" aria-label="Weiter" type="button">›</button>
+      </div>
+      <div class="team-slider-dots wrap" id="teamDots">
+        <button class="team-slider-dot active" data-index="0" aria-label="Damen" type="button"></button>
+        <button class="team-slider-dot" data-index="1" aria-label="Herren 1" type="button"></button>
+        <button class="team-slider-dot" data-index="2" aria-label="Herren 2" type="button"></button>
+        <button class="team-slider-dot" data-index="3" aria-label="Minis" type="button"></button>
+        <button class="team-slider-dot" data-index="4" aria-label="Juniors" type="button"></button>
+        <button class="team-slider-dot" data-index="5" aria-label="U18 Frauen" type="button"></button>
+        <button class="team-slider-dot" data-index="6" aria-label="Plausch Dienstag" type="button"></button>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="fine center i18n" data-de="Minis und Juniors melden sich über das offizielle Anmeldeformular für Kinder und Jugendliche bis 20 an." data-en="Minis and Juniors sign up via the official registration form for children and youth up to age 20.">Minis und Juniors melden sich über das offizielle Anmeldeformular für Kinder und Jugendliche bis 20 an.</p>
+    </div>
+  </section>
+
+  <section id="trainingszeiten" class="reveal">
+    <div class="wrap section-narrow">
+      <div class="section-head">
+        <div class="eyebrow">Indoor · VBC Foppa</div>
+        <h2 class="i18n" data-de="Trainingszeiten" data-en="Training times">Trainingszeiten</h2>
+        <p class="sec-dek i18n" data-de="Alle wöchentlichen Trainings auf einen Blick." data-en="All weekly trainings at a glance.">Alle wöchentlichen Trainings auf einen Blick.</p>
+      </div>
+      <table class="training-table">
+        <thead>
+          <tr>
+            <th class="i18n" data-de="Team" data-en="Team">Team</th>
+            <th class="i18n" data-de="Training" data-en="Training">Training</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Damen</td><td class="i18n" data-de="Di · 19:30–21:15" data-en="Tue · 19:30–21:15">Di · 19:30–21:15</td></tr>
+          <tr><td>Herren 1</td><td class="i18n" data-de="Fr · 20:15–22:00" data-en="Fri · 20:15–22:00">Fr · 20:15–22:00</td></tr>
+          <tr><td>Herren 2</td><td class="i18n" data-de="Do · 19:00–21:00" data-en="Thu · 19:00–21:00">Do · 19:00–21:00</td></tr>
+          <tr><td>Minis</td><td class="i18n" data-de="Fr · 18:00–19:30" data-en="Fri · 18:00–19:30">Fr · 18:00–19:30</td></tr>
+          <tr><td>Juniors</td><td class="i18n" data-de="Fr · 19:00–20:15" data-en="Fri · 19:00–20:15">Fr · 19:00–20:15</td></tr>
+          <tr><td>U18 Frauen</td><td class="i18n" data-de="Zeit folgt" data-en="Time TBA">Zeit folgt</td></tr>
+          <tr><td>Plausch Dienstag</td><td class="i18n" data-de="Di · Zeit folgt" data-en="Tue · Time TBA">Di · Zeit folgt</td></tr>
+        </tbody>
+      </table>
+      <p class="fine center i18n" data-de="Ort: Talentschule Surselva, Ilanz." data-en="Location: Talentschule Surselva, Ilanz.">Ort: Talentschule Surselva, Ilanz.</p>
+    </div>
+  </section>
+
+  <section id="events" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="i18n" data-de="Unser Programm" data-en="Our Program">Unser Programm</h2>
+        <p class="sec-dek i18n" data-de="Diese Anlässe finden jährlich statt. Genaue Daten für die kommende Saison folgen." data-en="These events run every year. Exact dates for the coming season are announced soon.">Diese Anlässe finden jährlich statt. Genaue Daten für die kommende Saison folgen.</p>
+      </div>
+      <div class="event-card-row">
+        <button type="button" class="event-card" data-event="camp-junior" style="background-image:url('images/kids-highfive-eachother-smiling.png');">
+          <span class="event-card-date i18n" data-de="Termin folgt" data-en="Date TBA">Termin folgt</span>
+          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Beach · Jg. 10–18" data-en="Beach · Ages 10–18">Beach · Jg. 10–18</span><span class="event-card-name">Junior Camp</span></span>
+        </button>
+        <button type="button" class="event-card" data-event="camp-auffahrt" style="background-image:url('images/actionshot2.png');">
+          <span class="event-card-date i18n" data-de="Termin folgt" data-en="Date TBA">Termin folgt</span>
+          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Beach · ab 18" data-en="Beach · 18+">Beach · ab 18</span><span class="event-card-name">Auffahrt</span></span>
+        </button>
+        <button type="button" class="event-card" data-event="weihnachtsturnier" style="background-image:url('images/indoor/hall-placeholder.jpg');">
+          <span class="event-card-date i18n" data-de="Termin folgt" data-en="Date TBA">Termin folgt</span>
+          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Indoor · Dezember" data-en="Indoor · December">Indoor · Dezember</span><span class="event-card-name">Weihnachten</span></span>
+        </button>
+        <button type="button" class="event-card" data-event="a2-turnier" style="background-image:url('images/volleyballfield-from-above.png');">
+          <span class="event-card-date i18n" data-de="Seit 2014" data-en="Since 2014">Seit 2014</span>
+          <span class="event-card-bottom"><span class="event-card-meta">Beach</span><span class="event-card-name">A2 Turnier</span></span>
+        </button>
+      </div>
+      <p class="fine center i18n" data-de="Zum Anklicken für mehr Infos. Genaue Daten für die kommende Saison folgen." data-en="Click any event for more info. Exact dates for the coming season are announced soon.">Zum Anklicken für mehr Infos. Genaue Daten für die kommende Saison folgen.</p>
+    </div>
+  </section>
+
+  <section id="news" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow i18n" data-de="In den Medien" data-en="In the media">In den Medien</div>
+        <h2 class="i18n" data-de="News" data-en="News">News</h2>
+      </div>
+      <div class="press-ring-row">
+        <button type="button" class="press-ring" data-photo="images/news/ruinaulta-2022-04-14.jpg">
+          <span class="press-ring-photo" style="background-image:url('images/news/ruinaulta-2022-04-14.jpg');"></span>
+          <span class="press-ring-source">ruinaulta</span>
+          <span class="press-ring-date">14.4.2022</span>
+        </button>
+        <a href="https://www.rtr.ch/sport/regiunal/ballarait-volley-surselva-enavos-en-la-2-liga" target="_blank" rel="noopener" class="press-ring press-ring-link">
+          <span class="press-ring-photo press-ring-noimg"><span class="press-ring-icon">📻</span></span>
+          <span class="press-ring-source">RTR Sport</span>
+          <span class="press-ring-date">21.5.2022</span>
+        </a>
+        <button type="button" class="press-ring" data-photo="images/news/ruinaulta-2022-03-25.jpg">
+          <span class="press-ring-photo" style="background-image:url('images/news/ruinaulta-2022-03-25.jpg');"></span>
+          <span class="press-ring-source">ruinaulta</span>
+          <span class="press-ring-date">25.3.2022</span>
+        </button>
+        <a href="https://www.rtr.ch/sport/regiunal/beachvolley-l-elita-da-ballareit-sin-sablun-a-glion" target="_blank" rel="noopener" class="press-ring press-ring-link">
+          <span class="press-ring-photo press-ring-noimg"><span class="press-ring-icon">📻</span></span>
+          <span class="press-ring-source">RTR Sport</span>
+          <span class="press-ring-date">17.8.2019</span>
+        </a>
+      </div>
+      <p class="fine center i18n" data-de="Presseerwähnungen von ruinaulta.ch und RTR Sport." data-en="Press mentions from ruinaulta.ch and RTR Sport.">Presseerwähnungen von ruinaulta.ch und RTR Sport.</p>
+    </div>
+  </section>
+
+  <section id="beach-anlage" class="reveal zone-beach">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Beach</div>
+        <h2 class="i18n" data-de="Beachvolleyball in Ilanz" data-en="Beach volleyball in Ilanz">Beachvolleyball in Ilanz</h2>
+        <p class="sec-dek i18n" data-de="Das Video zeigt unser Junior-Beachcamp und die Anlage. Dieselben drei Sandfelder kannst du auch ausserhalb der Camps frei buchen." data-en="The video shows our Junior Beach Camp and the facility. The same three sand courts are also open for public booking outside of camp weeks.">Das Video zeigt unser Junior-Beachcamp und die Anlage. Dieselben drei Sandfelder kannst du auch ausserhalb der Camps frei buchen.</p>
+      </div>
+      <div class="beach-video-wrap">
+        <video id="beachAnlageVideo" controls playsinline poster="images/video-posters/beachvolleilanz.jpg">
+          <source src="brandvideo/beachvolleyilanz.mov" type="video/quicktime">
+          <source src="brandvideo/beachvolleilanz-web.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="beach-anlage-grid">
+        <div class="modal-facts">
+          <div class="modal-fact">
+            <div class="modal-fact-label i18n" data-de="Anlage" data-en="Facility">Anlage</div>
+            <ul class="i18n" data-de="3 Sandfelder · 4–6 Bälle · Bluetooth-Boxen (400 W) · Beachhaus mit Küche für 40 Personen · 2 Toiletten · Duschen ~300 m entfernt" data-en="3 sand courts · 4–6 balls · Bluetooth speakers (400 W) · beach house with kitchen for 40 · 2 restrooms · showers ~300 m away">
+              <li>3 Sandfelder · 4–6 Bälle</li>
+              <li>Beachhaus mit Küche für 40 Personen</li>
+              <li>Camping direkt am Feld</li>
+            </ul>
+          </div>
+          <div class="modal-fact">
+            <div class="modal-fact-label i18n" data-de="Regeln (Auszug)" data-en="Rules (excerpt)">Regeln (Auszug)</div>
+            <ul>
+              <li class="i18n" data-de="Sand nach dem Spiel glätten, keine Abfälle liegen lassen" data-en="Level the sand after play, no litter">Sand nach dem Spiel glätten, keine Abfälle liegen lassen</li>
+              <li class="i18n" data-de="Saison April–September, täglich 8–22 Uhr" data-en="Season April–September, daily 8am–10pm">Saison April–September, täglich 8–22 Uhr</li>
+              <li class="i18n" data-de="Mitglieder haben bei Turnieren/Vermietungen Vorrang" data-en="Members have priority during tournaments/rentals">Mitglieder haben bei Turnieren/Vermietungen Vorrang</li>
+            </ul>
+          </div>
+          <div class="modal-fact">
+            <div class="modal-fact-label i18n" data-de="Preise" data-en="Prices">Preise</div>
+            <p class="i18n" data-de="Mitglieder: freier Zugang. Nicht-Mitglieder: CHF 5/Std., vor Ort per Twint. Detaillierte Preisliste bei Roman erhältlich." data-en="Members: free access. Non-members: CHF 5/hour, on-site via Twint. Full price list available from Roman.">Mitglieder: freier Zugang. Nicht-Mitglieder: CHF 5/Std., vor Ort per Twint. Detaillierte Preisliste bei Roman erhältlich.</p>
+          </div>
+        </div>
+        <div class="stat-block">
+          <span class="num">3</span>
+          <span class="cap i18n" data-de="Sandfelder" data-en="Sand courts">Sandfelder</span>
+        </div>
+      </div>
+      <div class="beach-anlage-ctas">
+        <a href="#" class="btn btn-primary book-cta i18n" data-de="Platz buchen" data-en="Book a Court">Platz buchen</a>
+        <a href="#kalender" class="btn btn-secondary i18n" data-de="Zu Kalender & Buchung →" data-en="To calendar & booking →">Zu Kalender & Buchung →</a>
+      </div>
+      <p class="fine i18n" data-de="Die Buchung läuft aktuell über WhatsApp bei Roman oder Alex." data-en="Booking currently runs through WhatsApp with Roman or Alex.">Die Buchung läuft aktuell über WhatsApp bei Roman oder Alex.</p>
+    </div>
+  </section>
+
+  <section id="kalender" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow i18n" data-de="Trainings & Belegung" data-en="Trainings & schedule">Trainings & Belegung</div>
+        <h2 class="i18n" data-de="Wöchentlicher Kalender" data-en="Weekly calendar">Wöchentlicher Kalender</h2>
+        <p class="sec-dek i18n" data-de="Live-Kalender mit allen Terminen, wochenweise. Zum Eintragen braucht es einmalig Zugriff über WhatsApp." data-en="Live calendar with all bookings, week by week. Getting write access just needs a one-time WhatsApp request.">Live-Kalender mit allen Terminen, wochenweise. Zum Eintragen braucht es einmalig Zugriff über WhatsApp.</p>
+      </div>
+      <div class="cal-embed-wrap">
+        <iframe class="cal-embed" src="https://kalender.digital/60c681d05dbf0801366c?wp_iframe=true" title="Reservationskalender Volley Surselva & Beachsportclub Surselva" loading="lazy"></iframe>
+      </div>
+      <div class="cal-book cal-book-row">
+        <div class="cal-book-icon">📅</div>
+        <div>
+          <h3 class="i18n" data-de="Selbst eintragen?" data-en="Want to add yourself?">Selbst eintragen?</h3>
+          <p class="i18n" data-de="Nur Clubmitglieder können reservieren. Zugriff einmalig bei Roman oder Alex per WhatsApp anfragen, danach direkt im Kalender oben eintragen." data-en="Only club members can reserve. Ask Roman or Alex via WhatsApp once for access, then add yourself directly in the calendar above.">Nur Clubmitglieder können reservieren. Zugriff einmalig bei Roman oder Alex per WhatsApp anfragen, danach direkt im Kalender oben eintragen.</p>
+        </div>
+        <a href="#" class="btn btn-primary book-cta i18n" data-de="Zugriff anfragen" data-en="Request access" data-de-msg="Hallo, ich möchte gerne Zugriff auf den Reservationskalender." data-en-msg="Hi, I'd like access to the reservation calendar.">Zugriff anfragen</a>
+      </div>
+      <p class="fine center i18n" data-de="Beachfeld: April–September, täglich 8–22 Uhr. Nicht-Mitglieder: CHF 5/Std. vor Ort per Twint." data-en="Beach court: April–September, daily 8am–10pm. Non-members: CHF 5/hour on-site via Twint.">Beachfeld: April–September, täglich 8–22 Uhr. Nicht-Mitglieder: CHF 5/Std. vor Ort per Twint.</p>
+    </div>
+  </section>
+
+  <section id="gallery" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="i18n" data-de="Impressionen" data-en="Snapshots">Impressionen</h2>
+      </div>
+      <div class="gallery-viewport" id="galleryViewport">
+      <div class="gallery-grid" id="galleryTrack">
+        <img src="images/volleyballfield-from-above.png" alt="Luftaufnahme des Beachvolleyball-Camps mit Sandfeldern und Zelten" loading="lazy">
+        <img src="images/volleyballfield.png" alt="Spielerinnen und Spieler bei sonnigem Training auf dem Sandfeld" loading="lazy">
+        <img src="images/actionshot2.png" alt="Spielerin taucht nach dem Ball beim Beachvolleyball-Training, im Hintergrund die Berge" loading="lazy">
+        <img src="images/children-playing-volley.png" alt="Kinder spielen Beachvolleyball auf dem Sandfeld vor Bergkulisse" loading="lazy">
+        <img src="images/playing-volley-with-friends.png" alt="Teilnehmende spielen gleichzeitig auf mehreren Sandfeldern" loading="lazy">
+        <img src="images/kids-highfive-eachother-smiling.png" alt="Zwei Spielerinnen geben sich nach einem Ballwechsel ein High-Five" loading="lazy">
+        <img src="images/portrait-volleyballplayer-blonde-with-ball-vertical.png" alt="Porträt einer Spielerin mit Ball und Sonnenbrille auf dem Sandfeld" loading="lazy">
+        <img src="images/volleyball-with-name-tags.png" alt="Beachvolleybälle mit handgeschriebenen Namen der Teilnehmenden" loading="lazy">
+        <img src="images/coach-explaining-in-circle.png" alt="Trainerin erklärt einer Gruppe die Übung im Kreis am Spielfeldrand" loading="lazy">
+        <img src="images/coach-explaining-on-the-sidelines.png" alt="Trainer erklärt am Spielfeldrand eine Übung, im Hintergrund wartende Spieler" loading="lazy">
+        <img src="images/coach-smiling.png" alt="Lächelnde Trainerin mit Ball auf dem Weg zum nächsten Spielfeld" loading="lazy">
+        <img src="images/focus-with-coach.png" alt="Trainer und junge Spielerin konzentriert vor dem nächsten Einsatz am Netz" loading="lazy">
+        <img src="images/warm-up-workout-circle-on-volleyfield.png" alt="Grosse Gruppe beim gemeinsamen Aufwärmen auf dem Sandfeld" loading="lazy">
+        <img src="images/warm-up-workout-in-a-circle.png" alt="Teilnehmende absolvieren gemeinsam eine Unterarmstütz-Übung im Sand" loading="lazy">
+        <img src="images/community-circle-gathering.png" alt="Grosse Gruppe von Camp-Teilnehmenden versammelt sich für eine Ansage" loading="lazy">
+        <img src="images/breakfast-time-people-on-eating.png" alt="Trainer bereitet in der Lagerküche Frühstück zu, Jugendliche schauen zu" loading="lazy">
+        <img src="images/lunch-kids-eating-vertical.png" alt="Jugendliche holen sich am Mittagsbuffet Reis, Gemüse und Salat" loading="lazy">
+        <img src="images/lunch-kids-eating.png" alt="Camp-Teilnehmende beim gemeinsamen Mittagessen im Speisesaal" loading="lazy">
+        <img src="images/snack-time-watermelon.png" alt="Jugendliche geniessen in der Pause frisch geschnittene Wassermelone" loading="lazy">
+        <img src="images/morning-sun-at-the-camp.png" alt="Sonnenaufgang über dem ruhigen Campgelände am frühen Morgen" loading="lazy">
+        <img src="images/view-out-of-the-tent-looking-at-the-beachvolleyfield.png" alt="Blick aus dem Zelt auf das Beachvolleyfeld und die Berge der Surselva" loading="lazy">
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vorstand" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow i18n" data-de="Die Vereine" data-en="The clubs">Die Vereine</div>
+        <h2 class="i18n" data-de="Vorstand" data-en="Board">Vorstand</h2>
+      </div>
+      <div class="board-row">
+        <span class="board-club-label board-club-label-indoor">Volley Surselva</span>
+        <div class="board-chip"><span class="board-photo board-photo-indoor"></span><strong>Celine Hulliger</strong><span class="i18n" data-de="Präsidentin" data-en="President">Präsidentin</span></div>
+        <div class="board-chip"><span class="board-photo board-photo-indoor"></span><strong>Nino Caduff</strong><span class="i18n" data-de="Kassier" data-en="Treasurer">Kassier</span></div>
+        <div class="board-chip"><span class="board-photo board-photo-indoor"></span><strong>Hauke Weinrich</strong><span class="i18n" data-de="Aktuar" data-en="Secretary">Aktuar</span></div>
+        <div class="board-chip"><span class="board-photo board-photo-indoor"></span><strong>Roman Cantieni</strong><span class="i18n" data-de="Aktuar" data-en="Secretary">Aktuar</span></div>
+      </div>
+      <div class="board-row">
+        <span class="board-club-label board-club-label-beach">Beachsportclub Surselva</span>
+        <div class="board-chip"><span class="board-photo board-photo-beach"></span><strong>Roman Cantieni</strong><span class="i18n" data-de="Präsident" data-en="President">Präsident</span></div>
+        <div class="board-chip"><span class="board-photo board-photo-beach"></span><strong>Laura Giorgio</strong><span class="i18n" data-de="Kassierin" data-en="Treasurer">Kassierin</span></div>
+        <div class="board-chip"><span class="board-photo board-photo-beach"></span><strong>Nicolas Cantieni</strong><span class="i18n" data-de="Aktuar" data-en="Secretary">Aktuar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="standorte" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow i18n" data-de="Wo wir spielen" data-en="Where we play">Wo wir spielen</div>
+        <h2 class="i18n" data-de="Standorte" data-en="Locations">Standorte</h2>
+      </div>
+      <div class="map-grid">
+        <a class="map-pin-row" href="https://maps.app.goo.gl/qP39YAXxyxfWTqDg7" target="_blank" rel="noopener">
+          <span class="map-pin-emoji">📍</span>
+          <span class="map-info">
+            <span class="map-info-title">Indoor · Halle</span>
+            <span class="map-info-sub i18n" data-de="Talentschule Surselva, Ilanz" data-en="Talentschule Surselva, Ilanz">Talentschule Surselva, Ilanz</span>
+          </span>
+        </a>
+        <a class="map-pin-row" href="https://www.google.ch/maps/place/Beachvolleyball+Ilanz/" target="_blank" rel="noopener">
+          <span class="map-pin-emoji">📍</span>
+          <span class="map-info">
+            <span class="map-info-title">Beach</span>
+            <span class="map-info-sub i18n" data-de="Beachvolleyball Ilanz" data-en="Beachvolleyball Ilanz">Beachvolleyball Ilanz</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="reveal">
+    <div class="wrap section-narrow">
+      <div class="eyebrow i18n" data-de="Mitmachen" data-en="Get involved">Mitmachen</div>
+      <h2 class="i18n" data-de="Kontakt & Anmeldung" data-en="Contact & Sign-up">Kontakt & Anmeldung</h2>
+      <p class="sec-dek i18n" data-de="Interesse an einem Team, einem Training oder einem Camp? Kurz schreiben, wir melden uns." data-en="Interested in a team, a training, or a camp? Send a quick note and we'll get back to you.">Interesse an einem Team, einem Training oder einem Camp? Kurz schreiben, wir melden uns.</p>
+      <form class="contact-form" id="contactForm">
+        <input type="hidden" name="_subject" value="Neue Kontaktanfrage von der Website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <div class="form-row">
+          <label>
+            <span class="i18n" data-de="Vorname" data-en="First name">Vorname</span>
+            <input type="text" name="vorname" required>
+          </label>
+          <label>
+            <span class="i18n" data-de="Nachname" data-en="Last name">Nachname</span>
+            <input type="text" name="nachname" required>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>
+            <span class="i18n" data-de="E-Mail" data-en="Email">E-Mail</span>
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            <span class="i18n" data-de="Telefon" data-en="Phone">Telefon</span>
+            <input type="tel" name="telefon">
+          </label>
+        </div>
+        <label class="form-full">
+          <span class="i18n" data-de="Ich interessiere mich für" data-en="I'm interested in">Ich interessiere mich für</span>
+          <select name="interesse">
+            <option class="i18n" data-de="Indoor-Team" data-en="Indoor team">Indoor-Team</option>
+            <option class="i18n" data-de="Hallentraining (Minis/Juniors)" data-en="Indoor training (Minis/Juniors)">Hallentraining (Minis/Juniors)</option>
+            <option class="i18n" data-de="Beach-Platz reservieren" data-en="Reserve a beach court">Beach-Platz reservieren</option>
+            <option class="i18n" data-de="Camp" data-en="Camp">Camp</option>
+            <option class="i18n" data-de="Sonstiges" data-en="Other">Sonstiges</option>
+          </select>
+        </label>
+        <label class="form-full">
+          <span class="i18n" data-de="Nachricht" data-en="Message">Nachricht</span>
+          <textarea name="nachricht" rows="4"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary i18n" data-de="Nachricht senden" data-en="Send message">Nachricht senden</button>
+        <p class="fine i18n" data-de="Geht direkt an Roman, keine eigene E-Mail-App nötig." data-en="Goes straight to Roman, no email app needed.">Geht direkt an Roman, keine eigene E-Mail-App nötig.</p>
+      </form>
+      <div id="contactSuccess" hidden style="text-align:center; padding:2rem 0;">
+        <div style="font-size:2.5rem; margin-bottom:0.8rem;">🏐</div>
+        <h3 class="i18n" data-de="Danke!" data-en="Thanks!">Danke!</h3>
+        <p class="i18n" data-de="Deine Nachricht ist angekommen. Wir melden uns bald." data-en="Your message has arrived. We'll get back to you soon.">Deine Nachricht ist angekommen. Wir melden uns bald.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="net-accent" aria-hidden="true"></div>
+  <div class="wrap footer-grid">
+    <div>
+      <div class="logo footer-logo"><img src="images/logo/volley-surselva-logo.png" alt="Volley Surselva" class="logo-img"></div>
+      <p class="fine i18n" data-de="Volley Surselva & Beachsportclub Surselva, Ilanz" data-en="Volley Surselva & Beachsportclub Surselva, Ilanz">Volley Surselva & Beachsportclub Surselva, Ilanz</p>
+    </div>
+    <div>
+      <h3 class="i18n" data-de="Kontakt" data-en="Contact">Kontakt</h3>
+      <p>Roman Cantieni<br>
+        <a href="mailto:roman.cantieni@hotmail.com">roman.cantieni@hotmail.com</a><br>
+        <a href="tel:+41787464683">+41 78 746 46 83</a>
+      </p>
+    </div>
+    <div>
+      <h3 class="i18n" data-de="Folge uns auf Instagram" data-en="Follow us on Instagram">Folge uns auf Instagram</h3>
+      <div class="social-row">
+        <a href="https://www.instagram.com/vbcfoppa/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram VBC Foppa">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="6" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.6" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
+          <span>@vbcfoppa</span>
+        </a>
+        <a href="https://www.instagram.com/beachsurselva/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram Beach Surselva">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="6" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.6" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></svg>
+          <span>@beachsurselva</span>
+        </a>
+        <a href="https://www.facebook.com/VolleySurselva/" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook Volley Surselva">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.6"/><path d="M13.5 9.2h1.6V6.8h-1.9c-1.7 0-2.8 1-2.8 2.8v1.3H8.9v2.4h1.5v5.9h2.4v-5.9h1.9l.3-2.4h-2.2V9.9c0-.5.2-.7.7-.7Z" fill="currentColor"/></svg>
+          <span>Facebook</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="sponsor-strip">
+    <div class="wrap">
+      <div class="eyebrow">Sponsoren</div>
+      <div class="sponsor-grid">
+        <img src="images/sponsors/mobiliar.png" alt="Mobiliar" loading="lazy">
+        <img src="images/sponsors/raiffeisen.png" alt="Raiffeisen" loading="lazy">
+        <img src="images/sponsors/zinsli.png" alt="Zinsli" loading="lazy">
+        <img src="images/sponsors/pieder-coray.png" alt="Pieder Coray" loading="lazy">
+        <img src="images/sponsors/coray-holzbau.png" alt="Coray Holzbau" loading="lazy">
+        <img src="images/sponsors/gr-sport.png" alt="GR Sport" loading="lazy">
+        <img src="images/sponsors/ripalgo.png" alt="Ripalgo" loading="lazy">
+        <img src="images/sponsors/cava.png" alt="Cava AG" loading="lazy">
+        <img src="images/sponsors/candrian.png" alt="Candrian Bau" loading="lazy">
+        <img src="images/sponsors/swiss-volley.png" alt="Swiss Volley" loading="lazy">
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="fine copyright">&copy; 2026 Volley Surselva & Beachsportclub Surselva · <a href="impressum.html" class="i18n" data-de="Impressum" data-en="Imprint">Impressum</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trainingsanmeldung Kinder & Jugendliche – Volley Surselva</title>
+<meta name="description" content="Anmeldung fürs Hallentraining bei Volley Surselva, für Kinder und Jugendliche bis 20 Jahre. Minis am Freitagabend, Juniors direkt im Anschluss.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .legal-wrap{ max-width:640px; margin:0 auto; padding:3.5rem 1.75rem 5rem; }
+  .legal-wrap h1{ font-size:1.9rem; margin-bottom:0.4rem; }
+  .legal-wrap > p{ color:var(--ink-muted); margin-bottom:1.6rem; }
+  .back-link{ display:inline-block; margin-bottom:1.5rem; font-family:"Oswald"; font-size:0.82rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--sand-deep); text-decoration:none; }
+  .form-note{ background:var(--sand-soft); border-radius:10px; padding:1rem 1.2rem; font-size:0.85rem; color:var(--ink); margin-bottom:2rem; }
+  .form-note strong{ display:block; margin-bottom:0.3rem; font-family:"Oswald"; font-size:0.78rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--sand-deep); }
+  fieldset{ border:none; padding:0; margin:0 0 1.8rem; }
+  fieldset legend{ font-family:"Oswald"; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.03em; color:var(--navy); margin-bottom:1rem; padding-bottom:0.5rem; border-bottom:1px solid var(--line); width:100%; }
+  :root[data-theme="dark"] fieldset legend{ color:var(--sand); }
+  .form-hint{ font-size:0.76rem; color:var(--ink-muted); margin-top:0.3rem; font-family:"Inter"; text-transform:none; letter-spacing:normal; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap navbar">
+    <a href="home.html" class="logo"><img src="images/logo/volley-surselva-logo.png" alt="Volley Surselva" class="logo-img"></a>
+  </div>
+</header>
+
+<main class="legal-wrap">
+  <a href="home.html#teams" class="back-link">← Zurück zu Teams</a>
+  <h1>Trainingsanmeldung Minis & Juniors</h1>
+  <p>Für Kinder und Jugendliche bis 20 Jahre. Minis: Jg. 2009 u. jünger, Fr 18:00–19:30. Juniors: Jg. 2007 u. jünger, Fr 19:00–20:15.</p>
+
+  <div class="form-note">
+    <strong>Zur AHV-Nummer</strong>
+    Wird für die Anmeldung bei Jugend+Sport und eine mögliche Swiss-Volley-Lizenz benötigt. Steht auf der Krankenkassenkarte.
+  </div>
+
+  <form class="contact-form" id="youthForm">
+    <fieldset>
+      <legend>Spieler:in</legend>
+      <div class="form-row">
+        <label><span>Vorname</span><input type="text" name="vorname" required></label>
+        <label><span>Nachname</span><input type="text" name="nachname" required></label>
+      </div>
+      <div class="form-row">
+        <label><span>Geschlecht</span>
+          <select name="geschlecht" required>
+            <option value="weiblich">Weiblich</option>
+            <option value="männlich">Männlich</option>
+            <option value="andere">Andere</option>
+          </select>
+        </label>
+        <label><span>Geburtsdatum</span><input type="date" name="geburtsdatum" required></label>
+      </div>
+      <div class="form-row">
+        <label><span>Nationalität</span><input type="text" name="nationalitaet" required></label>
+        <label><span>AHV-Nummer</span><input type="text" name="ahv" placeholder="756.xxxx.xxxx.xx" required></label>
+      </div>
+      <div class="form-row">
+        <label><span>Strasse</span><input type="text" name="strasse" required></label>
+        <label><span>PLZ / Ort</span><input type="text" name="plzort" required></label>
+      </div>
+      <div class="form-row">
+        <label><span>Mobile</span><input type="tel" name="mobile"></label>
+        <label><span>E-Mail</span><input type="email" name="email"></label>
+      </div>
+      <p class="form-hint">Mobile wird für den WhatsApp-Trainingschat genutzt (Absagen etc.).</p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Eltern / Erziehungsberechtigte <span class="form-hint" style="display:inline; text-transform:none;">(bei unter 16 Jahren)</span></legend>
+      <div class="form-row">
+        <label><span>Vorname</span><input type="text" name="eltern_vorname"></label>
+        <label><span>Nachname</span><input type="text" name="eltern_nachname"></label>
+      </div>
+      <div class="form-row">
+        <label><span>Mobile</span><input type="tel" name="eltern_mobile"></label>
+        <label><span>E-Mail</span><input type="email" name="eltern_email"></label>
+      </div>
+    </fieldset>
+
+    <input type="hidden" name="_subject" value="Neue Trainingsanmeldung">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <button type="submit" class="btn btn-primary" id="youthSubmitBtn">Anmeldung senden</button>
+    <p class="fine" id="youthFormNote">Geht direkt und sicher per Formular an Roman, keine eigene E-Mail-App nötig.</p>
+  </form>
+  <div id="youthSuccess" hidden style="text-align:center; padding:2rem 0;">
+    <div style="font-size:2.5rem; margin-bottom:0.8rem;">🏐</div>
+    <h2 style="text-transform:none;">Angemeldet!</h2>
+    <p>Danke, deine Anmeldung ist bei Roman angekommen. Er meldet sich, sobald es losgeht.</p>
+    <a href="home.html#teams" class="btn btn-secondary" style="margin-top:1rem;">Zurück zu Teams</a>
+  </div>
+</main>
+
+<script>
+  const youthForm = document.getElementById('youthForm');
+  const youthBtn = document.getElementById('youthSubmitBtn');
+  const youthNote = document.getElementById('youthFormNote');
+  youthForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    youthBtn.disabled = true;
+    youthBtn.textContent = 'Wird gesendet …';
+    fetch('https://formsubmit.co/ajax/roman.cantieni@hotmail.com', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(youthForm),
+    })
+      .then((res) => { if (!res.ok) throw new Error('send failed'); return res.json(); })
+      .then(() => {
+        youthForm.hidden = true;
+        document.getElementById('youthSuccess').hidden = false;
+      })
+      .catch(() => {
+        youthBtn.disabled = false;
+        youthBtn.textContent = 'Anmeldung senden';
+        youthNote.textContent = 'Das hat leider nicht geklappt. Schreib stattdessen direkt an roman.cantieni@hotmail.com.';
+        youthNote.style.color = '#c0392b';
+      });
+  });
+</script>
+</body>
+</html>

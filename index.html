@@ -1,26 +1,110 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beachvolley Surselva</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volley Surselva – Volleyball & Beachvolleyball in der Surselva</title>
+<meta name="description" content="Volley Surselva und der Beachsportclub Surselva bringen Volleyball in die Surselva: Hallentrainings für Kids bis Erwachsene, ein eigener Beachvolleyplatz in Ilanz und Camps im Sommer. Schau vorbei oder werde Teil eines Teams.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Beachvolley Surselva</h1>
-    <p>Beachvolleyball in der Surselva</p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Willkommen</h2>
-      <p>Diese Website ist im Aufbau. Hier findest du bald Infos zu Turnieren, Trainings und dem Beachvolleyfeld in der Surselva.</p>
-    </section>
-  </main>
+<div id="loader" class="loader">
+  <div class="loader-track">
+    <div class="loader-ball"><svg class="ball-icon" viewBox="0 0 200 200"><use href="#vb-ball"></use></svg></div>
+  </div>
+  <div class="loader-label i18n" data-de="Aufwärmen …" data-en="Warming up …">Aufwärmen …</div>
+</div>
 
-  <footer>
-    <p>&copy; 2026 Beachvolley Surselva</p>
-  </footer>
+<svg style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
+  <defs>
+    <symbol id="vb-ball" viewBox="0 0 200 200">
+      <defs>
+        <clipPath id="vbClip"><circle cx="100" cy="100" r="96"></circle></clipPath>
+        <radialGradient id="vbShade" cx="60%" cy="36%" r="78%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"></stop>
+          <stop offset="45%" stop-color="#ffffff" stop-opacity="0.04"></stop>
+          <stop offset="75%" stop-color="#000000" stop-opacity="0"></stop>
+          <stop offset="100%" stop-color="#000000" stop-opacity="0.28"></stop>
+        </radialGradient>
+        <radialGradient id="vbShine" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+        </radialGradient>
+      </defs>
+      <g clip-path="url(#vbClip)">
+        <circle cx="100" cy="100" r="96" fill="#ffffff"></circle>
+        <g stroke="#1a2332" stroke-width="2.4" stroke-linejoin="round">
+          <path fill="#2454c4" d="M100,100 Q66.0,152.8 100.0,196.0 A96,96 0 0,1 16.9,52.0 Q71.3,44.2 100,100 Z"></path>
+          <path fill="#f5b93f" d="M100,100 Q71.3,44.2 16.9,52.0 A96,96 0 0,1 183.1,52.0 Q162.7,103.0 100,100 Z"></path>
+          <path fill="#e2611f" d="M100,100 Q162.7,103.0 183.1,52.0 A96,96 0 0,1 100.0,196.0 Q66.0,152.8 100,100 Z"></path>
+        </g>
+        <circle cx="100" cy="100" r="96" fill="url(#vbShade)"></circle>
+        <ellipse cx="70" cy="56" rx="24" ry="16" fill="url(#vbShine)" transform="rotate(-25 70 56)"></ellipse>
+      </g>
+      <circle cx="100" cy="100" r="96" fill="none" stroke="#0d1321" stroke-width="3.5"></circle>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="lang-toggle" role="group" aria-label="Sprache / Language">
+  <button class="lang-btn active" data-lang="de" type="button">DE</button>
+  <button class="lang-btn" data-lang="en" type="button">EN</button>
+</div>
+
+<header class="site-header">
+  <div class="wrap navbar">
+    <a href="#top" class="logo"><img src="images/logo/volley-surselva-logo.png" alt="Volley Surselva" class="logo-img"></a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section id="hero" class="hero-demo">
+    <div class="court" id="courtArea">
+      <div class="hero-overlay">
+        <h1 class="i18n" data-de="Was möchtest du spielen?" data-en="What do you want to play?">Was möchtest du spielen?</h1>
+      </div>
+      <div class="court-half court-indoor" data-target="indoor" style="background-image:url('images/indoor/hall-placeholder.jpg');">
+        <span class="badge placeholder-badge i18n" data-de="Platzhalterfoto" data-en="Placeholder photo">Platzhalterfoto</span>
+        <div class="content">
+          <div class="kicker">VBC Foppa</div>
+          <h2>Indoor</h2>
+          <a href="home.html#teams" class="arrow i18n" data-de="Indoor entdecken →" data-en="Explore Indoor →">Indoor entdecken →</a>
+        </div>
+      </div>
+      <div class="court-seam" aria-hidden="true"></div>
+      <div class="court-half court-beach" data-target="beach">
+        <video class="beach-video" id="beachVideo" muted loop playsinline preload="none" poster="images/video-posters/beachvolleilanz.jpg">
+          <source src="brandvideo/beachvolleyilanz.mov" type="video/quicktime">
+          <source src="brandvideo/beachvolleilanz-web.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+          <div class="kicker">@beachsurselva</div>
+          <h2>Beach</h2>
+          <a href="home.html#beach-anlage" class="arrow i18n" data-de="Beach entdecken →" data-en="Explore Beach →">Beach entdecken →</a>
+        </div>
+      </div>
+      <div class="ball-wrap" id="hero-ball" tabindex="0" role="img" aria-label="Volleyball">
+        <div class="ball-inner">
+          <svg class="ball-icon" viewBox="0 0 200 200"><use href="#vb-ball"></use></svg>
+        </div>
+        <span class="hero-doodle i18n" data-de="folg mir!" data-en="follow me!">folg mir!</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" style="padding:1.4rem 0;">
+  <div class="wrap">
+    <p class="fine copyright" style="border:none; padding:0; margin:0;">&copy; 2026 Volley Surselva & Beachsportclub Surselva · <a href="impressum.html" class="i18n" data-de="Impressum" data-en="Imprint">Impressum</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
