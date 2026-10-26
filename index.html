@@ -14,41 +14,10 @@
 
 <div id="loader" class="loader">
   <div class="loader-track">
-    <div class="loader-ball"><svg class="ball-icon" viewBox="0 0 200 200"><use href="#vb-ball"></use></svg></div>
+    <div class="loader-ball"><img class="ball-icon" src="images/ball-photo.jpg" alt="Volleyball"></div>
   </div>
   <div class="loader-label i18n" data-de="Aufwärmen …" data-en="Warming up …">Aufwärmen …</div>
 </div>
-
-<svg style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
-  <defs>
-    <symbol id="vb-ball" viewBox="0 0 200 200">
-      <defs>
-        <clipPath id="vbClip"><circle cx="100" cy="100" r="96"></circle></clipPath>
-        <radialGradient id="vbShade" cx="60%" cy="36%" r="78%">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"></stop>
-          <stop offset="45%" stop-color="#ffffff" stop-opacity="0.04"></stop>
-          <stop offset="75%" stop-color="#000000" stop-opacity="0"></stop>
-          <stop offset="100%" stop-color="#000000" stop-opacity="0.28"></stop>
-        </radialGradient>
-        <radialGradient id="vbShine" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"></stop>
-          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
-        </radialGradient>
-      </defs>
-      <g clip-path="url(#vbClip)">
-        <circle cx="100" cy="100" r="96" fill="#ffffff"></circle>
-        <g stroke="#1a2332" stroke-width="2.4" stroke-linejoin="round">
-          <path fill="#2454c4" d="M100,100 Q66.0,152.8 100.0,196.0 A96,96 0 0,1 16.9,52.0 Q71.3,44.2 100,100 Z"></path>
-          <path fill="#f5b93f" d="M100,100 Q71.3,44.2 16.9,52.0 A96,96 0 0,1 183.1,52.0 Q162.7,103.0 100,100 Z"></path>
-          <path fill="#e2611f" d="M100,100 Q162.7,103.0 183.1,52.0 A96,96 0 0,1 100.0,196.0 Q66.0,152.8 100,100 Z"></path>
-        </g>
-        <circle cx="100" cy="100" r="96" fill="url(#vbShade)"></circle>
-        <ellipse cx="70" cy="56" rx="24" ry="16" fill="url(#vbShine)" transform="rotate(-25 70 56)"></ellipse>
-      </g>
-      <circle cx="100" cy="100" r="96" fill="none" stroke="#0d1321" stroke-width="3.5"></circle>
-    </symbol>
-  </defs>
-</svg>
 
 <div class="lang-toggle" role="group" aria-label="Sprache / Language">
   <button class="lang-btn active" data-lang="de" type="button">DE</button>
@@ -90,7 +59,7 @@
       </div>
       <div class="ball-wrap" id="hero-ball" tabindex="0" role="img" aria-label="Volleyball">
         <div class="ball-inner">
-          <svg class="ball-icon" viewBox="0 0 200 200"><use href="#vb-ball"></use></svg>
+          <img class="ball-icon" src="images/ball-photo.jpg" alt="">
         </div>
         <span class="hero-doodle i18n" data-de="folg mir!" data-en="follow me!">folg mir!</span>
       </div>

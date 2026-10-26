@@ -57,7 +57,7 @@ a{ color:inherit; }
 a:focus-visible, button:focus-visible{ outline:2px solid var(--sand-deep); outline-offset:3px; }
 img, video{ max-width:100%; }
 
-h1,h2,h3{ font-family:"Anton", "Oswald", "Arial Narrow", sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.01em; line-height:1.1; text-wrap:balance; margin:0 0 0.5em; color:var(--ink); }
+h1,h2,h3{ font-family:"Anton", "Oswald", "Arial Narrow", sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:0.01em; line-height:1.1; text-wrap:balance; margin:0 0 0.5em; color:var(--ink); }
 
 .wrap{ max-width:1180px; margin:0 auto; padding:0 1.75rem; }
 main > section, .site-footer{ padding:2.5rem 0; }
@@ -85,7 +85,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .lang-btn.active{ background:var(--sand); color:var(--navy-deep); font-weight:600; }
 
 /* ============ BALL ============ */
-.ball-icon{ display:block; width:100%; height:100%; }
+.ball-icon{ display:block; width:100%; height:100%; border-radius:50%; object-fit:cover; }
 @keyframes bg-drift{ from{ background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; } to{ background-position: 3% 4%, -4% -3%, -3% -4%, 4% 3%; } }
 @keyframes vb-spin{ to{ transform:rotate(360deg); } }
 @keyframes vb-idle{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
@@ -96,9 +96,9 @@ main > section + section{ border-top:1px solid var(--line); }
 .loader.hide{ opacity:0; visibility:hidden; pointer-events:none; }
 .loader-track{ position:relative; width:200px; height:64px; }
 .loader-ball{ position:absolute; left:50%; top:0; width:64px; height:64px; margin-left:-32px; animation: vb-roll-across 1.6s ease-in-out infinite; }
-.loader-ball svg{ animation: vb-spin 0.8s linear infinite; }
+.loader-ball .ball-icon{ animation: vb-spin 0.8s linear infinite; }
 .loader-label{ font-family:"Anton", "Oswald"; font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.75); }
-@media (prefers-reduced-motion: reduce){ .loader-ball, .loader-ball svg{ animation:none; } }
+@media (prefers-reduced-motion: reduce){ .loader-ball, .loader-ball .ball-icon{ animation:none; } }
 
 /* ============ HEADER / NAV ============ */
 .site-header{ position:sticky; top:0; z-index:100; background:var(--navy); box-shadow:var(--shadow); transition:background-color 0.25s ease, box-shadow 0.25s ease; }
@@ -119,7 +119,7 @@ main > section + section{ border-top:1px solid var(--line); }
 
 /* ============ BUTTONS ============ */
 .btn{
-  font-family:"Anton", "Oswald"; font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; font-weight:500;
+  font-family:"Anton", "Oswald"; font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; font-weight:400;
   padding:0.75rem 1.5rem; border-radius:var(--radius); border:2px solid transparent; cursor:pointer;
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none;
@@ -160,7 +160,7 @@ main > section + section{ border-top:1px solid var(--line); }
 @keyframes ken-burns{ from{ background-size:100%; } to{ background-size:114%; } }
 @media (prefers-reduced-motion: reduce){ .court-indoor{ animation:none; } }
 .court-indoor::before{ content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,10,40,0.55) 0%, rgba(0,10,40,0.1) 45%, rgba(0,10,40,0.35) 100%); }
-.placeholder-badge{ position:absolute; top:4.8rem; left:1rem; z-index:2; font-family:"Anton", "Oswald"; font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; background:rgba(var(--sand-rgb), 0.85); color:var(--navy-deep); padding:0.3rem 0.7rem; border-radius:0; font-weight:600; }
+.placeholder-badge{ position:absolute; top:4.8rem; left:1rem; z-index:2; font-family:"Anton", "Oswald"; font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; background:rgba(var(--sand-rgb), 0.85); color:var(--navy-deep); padding:0.3rem 0.7rem; border-radius:0; font-weight:400; }
 .court-beach{ background:var(--sand-deep); }
 .beach-video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
 
@@ -177,7 +177,7 @@ main > section + section{ border-top:1px solid var(--line); }
 
 .ball-wrap{ position:absolute; left:0; top:0; width:52px; height:52px; z-index:5; pointer-events:none; will-change:transform; }
 .ball-inner{ width:100%; height:100%; animation: vb-idle 2.4s ease-in-out infinite; }
-.ball-wrap svg{ animation: vb-spin 3s linear infinite; }
+.ball-wrap .ball-icon{ animation: vb-spin 3s linear infinite; }
 .hero-doodle{
   position:absolute; left:100%; top:-6px; margin-left:10px; white-space:nowrap;
   font-family:"Caveat", cursive; font-size:1.5rem; color:#fff; transform:rotate(-6deg);
@@ -186,7 +186,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .ball-wrap.following .hero-doodle{ opacity:0; transition:opacity 0.2s ease; }
 @media (max-width:900px){ .hero-doodle{ display:none; } }
 .ball-wrap.following .ball-inner{ animation:none; }
-@media (prefers-reduced-motion: reduce){ .ball-inner, .ball-wrap svg{ animation:none; } }
+@media (prefers-reduced-motion: reduce){ .ball-inner, .ball-wrap .ball-icon{ animation:none; } }
 @media (hover:none){ .ball-wrap{ display:none; } .court, .court-half, .court-half .content .arrow{ cursor:pointer; } }
 
 /* ============ VIDEO MODAL ============ */
@@ -252,7 +252,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .team-slide-badge-right{ left:auto; right:1rem; background:rgba(0,0,0,0.5); color:#fff; }
 .team-slide-content{ position:absolute; left:0; right:0; bottom:0; z-index:1; padding:1.4rem; display:flex; flex-direction:column; gap:0.2rem; color:#fff; }
 .team-slide-cat{ font-family:"Anton", "Oswald"; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--sand); }
-.team-slide-name{ font-family:"Anton", "Oswald"; font-size:1.6rem; font-weight:600; text-transform:uppercase; line-height:1.05; }
+.team-slide-name{ font-family:"Anton", "Oswald"; font-size:1.6rem; font-weight:400; text-transform:uppercase; line-height:1.05; }
 .team-slide-meta{ font-size:0.85rem; color:rgba(255,255,255,0.85); margin-top:0.2rem; }
 .team-slide-more{ font-family:"Anton", "Oswald"; font-size:0.78rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--sand); margin-top:0.6rem; }
 .team-slider-arrow{
@@ -286,7 +286,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .training-table th{ text-align:left; font-family:"Anton", "Oswald"; font-size:0.72rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-muted); padding:0.6rem 0.4rem; border-bottom:1px solid var(--line); }
 .training-table td{ padding:0.7rem 0.4rem; border-bottom:1px solid var(--line); font-size:0.92rem; }
 .training-table tbody tr:last-child td{ border-bottom:none; }
-.training-table td:first-child{ font-family:"Anton", "Oswald"; font-weight:500; }
+.training-table td:first-child{ font-family:"Anton", "Oswald"; font-weight:400; }
 .training-table td:last-child{ text-align:right; color:var(--ink-muted); font-variant-numeric:tabular-nums; }
 
 /* ============ EVENT CARDS ============ */
@@ -353,7 +353,7 @@ main > section + section{ border-top:1px solid var(--line); }
 /* ============ TWO COL / STATS ============ */
 .two-col{ display:grid; grid-template-columns:1.4fr 1fr; gap:2.5rem; align-items:center; }
 .stat-block{ text-align:center; background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius); padding:1.4rem 1rem; box-shadow:var(--shadow); }
-.stat-block .num{ display:block; font-family:"Anton", "Oswald"; font-weight:700; font-size:6.5rem; line-height:0.9; color:var(--navy); }
+.stat-block .num{ display:block; font-family:"Anton", "Oswald"; font-weight:400; font-size:6.5rem; line-height:0.9; color:var(--navy); }
 :root[data-theme="dark"] .stat-block .num, @media (prefers-color-scheme:dark){ .stat-block .num{ color:var(--sand);} }
 .stat-block .cap{ font-family:"Anton", "Oswald"; font-size:1rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-muted); }
 
