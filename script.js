@@ -9,6 +9,14 @@ if (loader) {
   setTimeout(hide, reduced ? 0 : 1100);
 }
 
+// Overlay header — transparent over the hero photo, solid navy once scrolled.
+const overlayHeader = document.getElementById('siteHeader');
+if (overlayHeader) {
+  const updateHeaderScroll = () => overlayHeader.classList.toggle('scrolled', window.scrollY > 40);
+  updateHeaderScroll();
+  window.addEventListener('scroll', updateHeaderScroll, { passive: true });
+}
+
 // Language toggle — DE default, EN swaps every [data-de]/[data-en] pair.
 const langBtns = document.querySelectorAll('.lang-btn');
 const bookMessages = {
@@ -161,7 +169,7 @@ document.querySelectorAll('.press-ring[data-photo]').forEach((btn) => {
     pressModalPhoto.style.backgroundImage = `url('${btn.dataset.photo}')`;
     const source = btn.querySelector('.press-ring-source').textContent;
     const date = btn.querySelector('.press-ring-date').textContent;
-    pressModalCaption.textContent = `${source} · ${date}`;
+    pressModalCaption.textContent = `${source}, ${date}`;
     pressModal.classList.add('open');
     pressModal.setAttribute('aria-hidden', 'false');
   });
@@ -271,6 +279,18 @@ if (galleryTrack && !reduced) {
   });
 }
 
+// Sponsor strip — same seamless-loop trick as the gallery, just horizontal
+// and slower so the logos stay readable as they drift past.
+const sponsorTrack = document.getElementById('sponsorTrack');
+if (sponsorTrack && !reduced) {
+  const originals = Array.from(sponsorTrack.children);
+  originals.forEach((img) => {
+    const clone = img.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    sponsorTrack.appendChild(clone);
+  });
+}
+
 // Scroll reveal
 if (!reduced) {
   const revealEls = document.querySelectorAll('.reveal');
@@ -309,16 +329,14 @@ if (campPromo && eventsSection) {
 }
 
 // Team slider — a horizontal, snap-scrolling strip of team photos with
-// prev/next arrows and dots. Clicking a slide opens the detail modal below,
-// which links out to the official Swiss Volley page for standings/roster
-// (real, currently-maintained data we don't want to duplicate and let go stale).
+// prev/next arrows and dots. Clicking a slide opens the detail modal below
+// with standings and roster for the teams that have them.
 const teamData = {
   damen: {
     photo: 'images/teams/damen.jpg',
-    badge: { de: 'Sucht Spielerinnen', en: 'Recruiting' },
     name: 'Volley Surselva Damen',
-    meta: { de: '4. Liga, Gruppe A · Di 19:30–21:15', en: '4th league, Group A · Tue 19:30–21:15' },
-    tableUrl: 'https://volleysurselva.ch/teams/damen/',
+    league: { de: '4. Liga, Gruppe A', en: '4th league, Group A' },
+    training: { de: 'Di 19:30–21:15', en: 'Tue 19:30–21:15' },
     signupHref: '#kontakt',
     season: '2025/26',
     standings: [
@@ -339,10 +357,9 @@ const teamData = {
   },
   herren1: {
     photo: null,
-    badge: { de: 'Sucht Spieler', en: 'Recruiting' },
     name: 'Volley Surselva 1',
-    meta: { de: '4. Liga · Fr 20:15–22:00', en: '4th league · Fri 20:15–22:00' },
-    tableUrl: 'https://volleysurselva.ch/teams/herren-1/',
+    league: { de: '4. Liga', en: '4th league' },
+    training: { de: 'Fr 20:15–22:00', en: 'Fri 20:15–22:00' },
     signupHref: '#kontakt',
     season: '2022/23',
     standings: [
@@ -361,10 +378,9 @@ const teamData = {
   },
   herren2: {
     photo: 'images/teams/herren-2.jpg',
-    badge: { de: 'Sucht Spieler', en: 'Recruiting' },
     name: 'Volley Surselva 2',
-    meta: { de: '4. Liga, Gruppe A · Do 19:00–21:00', en: '4th league, Group A · Thu 19:00–21:00' },
-    tableUrl: 'https://volleysurselva.ch/teams/herren-2/',
+    league: { de: '4. Liga, Gruppe A', en: '4th league, Group A' },
+    training: { de: 'Do 19:00–21:00', en: 'Thu 19:00–21:00' },
     signupHref: '#kontakt',
     season: '2023/24',
     standings: [
@@ -383,34 +399,30 @@ const teamData = {
   },
   minis: {
     photo: null,
-    badge: { de: 'Für Jg. 2009 u. jünger', en: 'Born 2009 or later' },
     name: 'Minis',
-    meta: { de: 'Jg. 2009 u. jünger · Fr 18:00–19:30', en: 'Born 2009 or later · Fri 18:00–19:30' },
-    tableUrl: null,
+    category: { de: 'Jg. 2009 u. jünger', en: 'Born 2009 or later' },
+    training: { de: 'Fr 18:00–19:30', en: 'Fri 18:00–19:30' },
     signupHref: 'anmeldung-jugend.html',
   },
   juniors: {
     photo: null,
-    badge: { de: 'Für Jg. 2007 u. jünger', en: 'Born 2007 or later' },
     name: 'Juniors',
-    meta: { de: 'Jg. 2007 u. jünger · Fr 19:00–20:15', en: 'Born 2007 or later · Fri 19:00–20:15' },
-    tableUrl: null,
+    category: { de: 'Jg. 2007 u. jünger', en: 'Born 2007 or later' },
+    training: { de: 'Fr 19:00–20:15', en: 'Fri 19:00–20:15' },
     signupHref: 'anmeldung-jugend.html',
   },
   u18frauen: {
     photo: null,
-    badge: { de: 'Sucht Spielerinnen', en: 'Recruiting' },
     name: 'U18 Frauen',
-    meta: { de: 'U18 · Zeit folgt', en: 'U18 · Time TBA' },
-    tableUrl: null,
+    category: { de: 'U18', en: 'U18' },
+    training: { de: 'Zeit folgt', en: 'Time TBA' },
     signupHref: 'anmeldung-jugend.html',
   },
   plausch: {
     photo: null,
-    badge: { de: 'Für alle', en: 'Open to all' },
     name: 'Plausch Dienstag',
-    meta: { de: 'Di · Zeit folgt', en: 'Tue · Time TBA' },
-    tableUrl: null,
+    category: { de: 'Für alle', en: 'Open to all' },
+    training: { de: 'Di, Zeit folgt', en: 'Tue, Time TBA' },
     signupHref: '#kontakt',
   },
 };
@@ -463,18 +475,34 @@ if (teamSliderTrack) {
     if (!data || !teamModal) return;
     const lang = currentLang === 'en' ? 'en' : 'de';
     document.getElementById('teamModalPhoto').style.backgroundImage = data.photo ? `url('${data.photo}')` : 'none';
-    document.getElementById('teamModalBadge').textContent = data.badge[lang];
     document.getElementById('teamModalTitle').textContent = data.name;
-    document.getElementById('teamModalMeta').textContent = data.meta[lang];
+
+    const infoBox = document.getElementById('teamModalInfoBox');
+    const info = data.league || data.category;
+    if (info) {
+      document.getElementById('teamModalInfoLabel').textContent = data.league
+        ? (lang === 'en' ? 'League' : 'Liga')
+        : (lang === 'en' ? 'Category' : 'Kategorie');
+      document.getElementById('teamModalInfoValue').textContent = info[lang];
+      infoBox.hidden = false;
+    } else {
+      infoBox.hidden = true;
+    }
+    document.getElementById('teamModalTrainingValue').textContent = data.training[lang];
+    const coachBox = document.getElementById('teamModalCoachBox');
+    if (data.coach) {
+      document.getElementById('teamModalCoachValue').textContent = data.coach;
+      coachBox.hidden = false;
+    } else {
+      coachBox.hidden = true;
+    }
+
     const leagueBlock = document.getElementById('teamModalLeagueBlock');
     if (data.standings) {
       renderTeamTable(document.getElementById('teamModalStandings'), standingsHead[lang], data.standings);
       renderTeamTable(document.getElementById('teamModalRoster'), rosterHead[lang], data.roster);
-      const standLabel = lang === 'en'
-        ? `As posted for the ${data.season} season on the official page. Coach: ${data.coach}.`
-        : `Stand Saison ${data.season}, wie auf der offiziellen Seite hinterlegt. Trainer: ${data.coach}.`;
+      const standLabel = lang === 'en' ? `As posted for the ${data.season} season.` : `Stand Saison ${data.season}.`;
       document.getElementById('teamModalStand').textContent = standLabel;
-      document.getElementById('teamModalTableLink').href = data.tableUrl;
       leagueBlock.hidden = false;
     } else {
       leagueBlock.hidden = true;

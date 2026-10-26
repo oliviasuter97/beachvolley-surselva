@@ -7,7 +7,7 @@
 <meta name="description" content="Hier findest du alle Teams von Volley Surselva und dem Beachsportclub Surselva, die wöchentlichen Trainingszeiten, unsere Camps und Turniere sowie den Buchungskalender für die Beachvolleyballfelder in Ilanz.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -55,7 +55,7 @@
   <button class="lang-btn" data-lang="en" type="button">EN</button>
 </div>
 
-<header class="site-header">
+<header class="site-header site-header--overlay" id="siteHeader">
   <div class="wrap navbar">
     <a href="#top" class="logo"><img src="images/logo/volley-surselva-logo.png" alt="Volley Surselva" class="logo-img"></a>
     <nav class="links" aria-label="Hauptnavigation">
@@ -116,9 +116,21 @@
     <button class="modal-close" id="teamModalClose" aria-label="Schliessen">✕</button>
     <div class="team-modal-photo" id="teamModalPhoto"></div>
     <div class="modal-footer">
-      <span class="badge" id="teamModalBadge"></span>
-      <h3 id="teamModalTitle" style="margin-top:0.6rem;"></h3>
-      <p class="sec-dek" id="teamModalMeta" style="margin-bottom:1.4rem;"></p>
+      <h3 id="teamModalTitle"></h3>
+      <div class="team-modal-facts">
+        <div class="modal-fact" id="teamModalInfoBox" hidden>
+          <div class="modal-fact-label" id="teamModalInfoLabel"></div>
+          <p id="teamModalInfoValue"></p>
+        </div>
+        <div class="modal-fact">
+          <div class="modal-fact-label i18n" data-de="Trainingszeiten" data-en="Training times">Trainingszeiten</div>
+          <p id="teamModalTrainingValue"></p>
+        </div>
+        <div class="modal-fact" id="teamModalCoachBox" hidden>
+          <div class="modal-fact-label i18n" data-de="Trainer" data-en="Coach">Trainer</div>
+          <p id="teamModalCoachValue"></p>
+        </div>
+      </div>
       <div class="team-modal-ctas">
         <a id="teamModalSignupLink" class="btn btn-primary i18n" data-de="Jetzt anmelden →" data-en="Sign up now →">Jetzt anmelden →</a>
       </div>
@@ -134,9 +146,6 @@
           </div>
         </div>
         <p class="fine" id="teamModalStand"></p>
-        <p class="fine">
-          <a id="teamModalTableLink" class="i18n" data-de="Offizielle Seite mit Live-Stand →" data-en="Official page with live status →" target="_blank" rel="noopener">Offizielle Seite mit Live-Stand →</a>
-        </p>
       </div>
     </div>
   </div>
@@ -158,6 +167,10 @@
     <img class="intro-band-photo-bg" src="images/Beachvolleyteamsurselva.jpg" alt="Gruppenfoto Beachcamp Kids vor der Bergkulisse der Surselva">
     <div class="intro-band-veil" aria-hidden="true"></div>
     <div class="wrap intro-band-content">
+      <h1 class="intro-band-hook">
+        <span class="i18n" data-de="Sand oder Halle." data-en="Sand or hall.">Sand oder Halle.</span>
+        <span class="hook-accent i18n" data-de="Hauptsache Volleyball." data-en="As long as it's volleyball.">Hauptsache Volleyball.</span>
+      </h1>
       <p class="lead i18n" data-de="Zwei Vereine, ein Ziel: Volleyball in der Surselva fördern. Volley Surselva und der Beachsportclub Surselva bieten wöchentliche Hallentrainings, einen eigenen Beachvolleyplatz in Ilanz und Camps für Kinder, Jugendliche und Erwachsene." data-en="Two clubs, one goal: growing volleyball in the Surselva. Volley Surselva and Beachsportclub Surselva run weekly indoor trainings, our own beach volleyball courts in Ilanz, and camps for kids, teens and adults.">Zwei Vereine, ein Ziel: Volleyball in der Surselva fördern. Volley Surselva und der Beachsportclub Surselva bieten wöchentliche Hallentrainings, einen eigenen Beachvolleyplatz in Ilanz und Camps für Kinder, Jugendliche und Erwachsene.</p>
     </div>
   </section>
@@ -165,7 +178,7 @@
   <section id="teams" class="reveal zone-indoor">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">Indoor · VBC Foppa</div>
+        <div class="eyebrow i18n" data-de="Indoor bei VBC Foppa" data-en="Indoor at VBC Foppa">Indoor bei VBC Foppa</div>
         <h2>Teams</h2>
         <p class="sec-dek i18n" data-de="Sieben Gruppen, eine Halle. Alle Teams suchen laufend motivierte neue Spieler und Spielerinnen. Klick auf ein Team für Infos, Tabelle und Kader." data-en="Seven groups, one hall. All teams are always looking for motivated new players. Click a team for info, standings and roster.">Sieben Gruppen, eine Halle. Alle Teams suchen laufend motivierte neue Spieler und Spielerinnen. Klick auf ein Team für Infos, Tabelle und Kader.</p>
       </div>
@@ -179,7 +192,7 @@
             <span class="team-slide-content">
               <span class="team-slide-cat">Damen</span>
               <span class="team-slide-name">Volley Surselva Damen</span>
-              <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A · Di 19:30–21:15" data-en="4th league, Group A · Tue 19:30–21:15">4. Liga, Gruppe A · Di 19:30–21:15</span>
+              <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A, Di 19:30–21:15" data-en="4th league, Group A, Tue 19:30–21:15">4. Liga, Gruppe A, Di 19:30–21:15</span>
               <span class="team-slide-more i18n" data-de="Alle Infos & Tabelle →" data-en="Full info & standings →">Alle Infos & Tabelle →</span>
             </span>
           </button>
@@ -189,7 +202,7 @@
             <span class="team-slide-content">
               <span class="team-slide-cat">Herren 1</span>
               <span class="team-slide-name">Volley Surselva 1</span>
-              <span class="team-slide-meta i18n" data-de="4. Liga · Fr 20:15–22:00" data-en="4th league · Fri 20:15–22:00">4. Liga · Fr 20:15–22:00</span>
+              <span class="team-slide-meta i18n" data-de="4. Liga, Fr 20:15–22:00" data-en="4th league, Fri 20:15–22:00">4. Liga, Fr 20:15–22:00</span>
               <span class="team-slide-more i18n" data-de="Alle Infos & Tabelle →" data-en="Full info & standings →">Alle Infos & Tabelle →</span>
             </span>
           </button>
@@ -198,7 +211,7 @@
             <span class="team-slide-content">
               <span class="team-slide-cat">Herren 2</span>
               <span class="team-slide-name">Volley Surselva 2</span>
-              <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A · Do 19:00–21:00" data-en="4th league, Group A · Thu 19:00–21:00">4. Liga, Gruppe A · Do 19:00–21:00</span>
+              <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A, Do 19:00–21:00" data-en="4th league, Group A, Thu 19:00–21:00">4. Liga, Gruppe A, Do 19:00–21:00</span>
               <span class="team-slide-more i18n" data-de="Alle Infos & Tabelle →" data-en="Full info & standings →">Alle Infos & Tabelle →</span>
             </span>
           </button>
@@ -208,7 +221,7 @@
             <span class="team-slide-content">
               <span class="team-slide-cat i18n" data-de="Jugend" data-en="Youth">Jugend</span>
               <span class="team-slide-name">Minis</span>
-              <span class="team-slide-meta i18n" data-de="Jg. 2009 u. jünger · Fr 18:00–19:30" data-en="Born 2009 or later · Fri 18:00–19:30">Jg. 2009 u. jünger · Fr 18:00–19:30</span>
+              <span class="team-slide-meta i18n" data-de="Jg. 2009 u. jünger, Fr 18:00–19:30" data-en="Born 2009 or later, Fri 18:00–19:30">Jg. 2009 u. jünger, Fr 18:00–19:30</span>
               <span class="team-slide-more i18n" data-de="Alle Infos →" data-en="Full info →">Alle Infos →</span>
             </span>
           </button>
@@ -218,7 +231,7 @@
             <span class="team-slide-content">
               <span class="team-slide-cat i18n" data-de="Jugend" data-en="Youth">Jugend</span>
               <span class="team-slide-name">Juniors</span>
-              <span class="team-slide-meta i18n" data-de="Jg. 2007 u. jünger · Fr 19:00–20:15" data-en="Born 2007 or later · Fri 19:00–20:15">Jg. 2007 u. jünger · Fr 19:00–20:15</span>
+              <span class="team-slide-meta i18n" data-de="Jg. 2007 u. jünger, Fr 19:00–20:15" data-en="Born 2007 or later, Fri 19:00–20:15">Jg. 2007 u. jünger, Fr 19:00–20:15</span>
               <span class="team-slide-more i18n" data-de="Alle Infos →" data-en="Full info →">Alle Infos →</span>
             </span>
           </button>
@@ -228,7 +241,7 @@
             <span class="team-slide-content">
               <span class="team-slide-cat i18n" data-de="Jugend" data-en="Youth">Jugend</span>
               <span class="team-slide-name">U18 Frauen</span>
-              <span class="team-slide-meta i18n" data-de="U18 · Zeit folgt" data-en="U18 · Time TBA">U18 · Zeit folgt</span>
+              <span class="team-slide-meta i18n" data-de="U18, Zeit folgt" data-en="U18, Time TBA">U18, Zeit folgt</span>
               <span class="team-slide-more i18n" data-de="Alle Infos →" data-en="Full info →">Alle Infos →</span>
             </span>
           </button>
@@ -238,7 +251,7 @@
             <span class="team-slide-content">
               <span class="team-slide-cat i18n" data-de="Plausch" data-en="Recreational">Plausch</span>
               <span class="team-slide-name">Plausch Dienstag</span>
-              <span class="team-slide-meta i18n" data-de="Di · Zeit folgt" data-en="Tue · Time TBA">Di · Zeit folgt</span>
+              <span class="team-slide-meta i18n" data-de="Di, Zeit folgt" data-en="Tue, Time TBA">Di, Zeit folgt</span>
               <span class="team-slide-more i18n" data-de="Alle Infos →" data-en="Full info →">Alle Infos →</span>
             </span>
           </button>
@@ -263,7 +276,7 @@
   <section id="trainingszeiten" class="reveal">
     <div class="wrap section-narrow">
       <div class="section-head">
-        <div class="eyebrow">Indoor · VBC Foppa</div>
+        <div class="eyebrow i18n" data-de="Indoor bei VBC Foppa" data-en="Indoor at VBC Foppa">Indoor bei VBC Foppa</div>
         <h2 class="i18n" data-de="Trainingszeiten" data-en="Training times">Trainingszeiten</h2>
         <p class="sec-dek i18n" data-de="Alle wöchentlichen Trainings auf einen Blick." data-en="All weekly trainings at a glance.">Alle wöchentlichen Trainings auf einen Blick.</p>
       </div>
@@ -275,13 +288,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Damen</td><td class="i18n" data-de="Di · 19:30–21:15" data-en="Tue · 19:30–21:15">Di · 19:30–21:15</td></tr>
-          <tr><td>Herren 1</td><td class="i18n" data-de="Fr · 20:15–22:00" data-en="Fri · 20:15–22:00">Fr · 20:15–22:00</td></tr>
-          <tr><td>Herren 2</td><td class="i18n" data-de="Do · 19:00–21:00" data-en="Thu · 19:00–21:00">Do · 19:00–21:00</td></tr>
-          <tr><td>Minis</td><td class="i18n" data-de="Fr · 18:00–19:30" data-en="Fri · 18:00–19:30">Fr · 18:00–19:30</td></tr>
-          <tr><td>Juniors</td><td class="i18n" data-de="Fr · 19:00–20:15" data-en="Fri · 19:00–20:15">Fr · 19:00–20:15</td></tr>
+          <tr><td>Damen</td><td class="i18n" data-de="Di 19:30–21:15" data-en="Tue 19:30–21:15">Di 19:30–21:15</td></tr>
+          <tr><td>Herren 1</td><td class="i18n" data-de="Fr 20:15–22:00" data-en="Fri 20:15–22:00">Fr 20:15–22:00</td></tr>
+          <tr><td>Herren 2</td><td class="i18n" data-de="Do 19:00–21:00" data-en="Thu 19:00–21:00">Do 19:00–21:00</td></tr>
+          <tr><td>Minis</td><td class="i18n" data-de="Fr 18:00–19:30" data-en="Fri 18:00–19:30">Fr 18:00–19:30</td></tr>
+          <tr><td>Juniors</td><td class="i18n" data-de="Fr 19:00–20:15" data-en="Fri 19:00–20:15">Fr 19:00–20:15</td></tr>
           <tr><td>U18 Frauen</td><td class="i18n" data-de="Zeit folgt" data-en="Time TBA">Zeit folgt</td></tr>
-          <tr><td>Plausch Dienstag</td><td class="i18n" data-de="Di · Zeit folgt" data-en="Tue · Time TBA">Di · Zeit folgt</td></tr>
+          <tr><td>Plausch Dienstag</td><td class="i18n" data-de="Di, Zeit folgt" data-en="Tue, Time TBA">Di, Zeit folgt</td></tr>
         </tbody>
       </table>
       <p class="fine center i18n" data-de="Ort: Talentschule Surselva, Ilanz." data-en="Location: Talentschule Surselva, Ilanz.">Ort: Talentschule Surselva, Ilanz.</p>
@@ -297,15 +310,15 @@
       <div class="event-card-row">
         <button type="button" class="event-card" data-event="camp-junior" style="background-image:url('images/kids-highfive-eachother-smiling.png');">
           <span class="event-card-date i18n" data-de="Termin folgt" data-en="Date TBA">Termin folgt</span>
-          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Beach · Jg. 10–18" data-en="Beach · Ages 10–18">Beach · Jg. 10–18</span><span class="event-card-name">Junior Camp</span></span>
+          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Beach, Jg. 10–18" data-en="Beach, Ages 10–18">Beach, Jg. 10–18</span><span class="event-card-name">Junior Camp</span></span>
         </button>
         <button type="button" class="event-card" data-event="camp-auffahrt" style="background-image:url('images/actionshot2.png');">
           <span class="event-card-date i18n" data-de="Termin folgt" data-en="Date TBA">Termin folgt</span>
-          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Beach · ab 18" data-en="Beach · 18+">Beach · ab 18</span><span class="event-card-name">Auffahrt</span></span>
+          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Beach, ab 18" data-en="Beach, 18+">Beach, ab 18</span><span class="event-card-name">Auffahrt</span></span>
         </button>
         <button type="button" class="event-card" data-event="weihnachtsturnier" style="background-image:url('images/indoor/hall-placeholder.jpg');">
           <span class="event-card-date i18n" data-de="Termin folgt" data-en="Date TBA">Termin folgt</span>
-          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Indoor · Dezember" data-en="Indoor · December">Indoor · Dezember</span><span class="event-card-name">Weihnachten</span></span>
+          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Indoor, Dezember" data-en="Indoor, December">Indoor, Dezember</span><span class="event-card-name">Weihnachten</span></span>
         </button>
         <button type="button" class="event-card" data-event="a2-turnier" style="background-image:url('images/volleyballfield-from-above.png');">
           <span class="event-card-date i18n" data-de="Seit 2014" data-en="Since 2014">Seit 2014</span>
@@ -365,10 +378,12 @@
         <div class="modal-facts">
           <div class="modal-fact">
             <div class="modal-fact-label i18n" data-de="Anlage" data-en="Facility">Anlage</div>
-            <ul class="i18n" data-de="3 Sandfelder · 4–6 Bälle · Bluetooth-Boxen (400 W) · Beachhaus mit Küche für 40 Personen · 2 Toiletten · Duschen ~300 m entfernt" data-en="3 sand courts · 4–6 balls · Bluetooth speakers (400 W) · beach house with kitchen for 40 · 2 restrooms · showers ~300 m away">
-              <li>3 Sandfelder · 4–6 Bälle</li>
-              <li>Beachhaus mit Küche für 40 Personen</li>
-              <li>Camping direkt am Feld</li>
+            <ul>
+              <li class="i18n" data-de="3 Sandfelder, 4–6 Bälle" data-en="3 sand courts, 4–6 balls">3 Sandfelder, 4–6 Bälle</li>
+              <li class="i18n" data-de="Bluetooth-Boxen (400 W)" data-en="Bluetooth speakers (400 W)">Bluetooth-Boxen (400 W)</li>
+              <li class="i18n" data-de="Beachhaus mit Küche für 40 Personen" data-en="Beach house with kitchen for 40">Beachhaus mit Küche für 40 Personen</li>
+              <li class="i18n" data-de="2 Toiletten, Duschen ~300 m entfernt" data-en="2 restrooms, showers ~300 m away">2 Toiletten, Duschen ~300 m entfernt</li>
+              <li class="i18n" data-de="Camping direkt am Feld" data-en="Camping right at the court">Camping direkt am Feld</li>
             </ul>
           </div>
           <div class="modal-fact">
@@ -484,7 +499,7 @@
         <a class="map-pin-row" href="https://maps.app.goo.gl/qP39YAXxyxfWTqDg7" target="_blank" rel="noopener">
           <span class="map-pin-emoji">📍</span>
           <span class="map-info">
-            <span class="map-info-title">Indoor · Halle</span>
+            <span class="map-info-title">Indoor-Halle</span>
             <span class="map-info-sub i18n" data-de="Talentschule Surselva, Ilanz" data-en="Talentschule Surselva, Ilanz">Talentschule Surselva, Ilanz</span>
           </span>
         </a>
@@ -590,7 +605,9 @@
   <div class="sponsor-strip">
     <div class="wrap">
       <div class="eyebrow">Sponsoren</div>
-      <div class="sponsor-grid">
+    </div>
+    <div class="sponsor-viewport">
+      <div class="sponsor-track" id="sponsorTrack">
         <img src="images/sponsors/mobiliar.png" alt="Mobiliar" loading="lazy">
         <img src="images/sponsors/raiffeisen.png" alt="Raiffeisen" loading="lazy">
         <img src="images/sponsors/zinsli.png" alt="Zinsli" loading="lazy">
@@ -605,7 +622,7 @@
     </div>
   </div>
   <div class="wrap">
-    <p class="fine copyright">&copy; 2026 Volley Surselva & Beachsportclub Surselva · <a href="impressum.html" class="i18n" data-de="Impressum" data-en="Imprint">Impressum</a></p>
+    <p class="fine copyright">&copy; 2026 Volley Surselva & Beachsportclub Surselva <a href="impressum.html" class="copyright-link i18n" data-de="Impressum" data-en="Imprint">Impressum</a></p>
   </div>
 </footer>
 
