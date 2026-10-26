@@ -186,24 +186,20 @@ if (pressModal) pressModal.addEventListener('click', (e) => { if (e.target === p
 // with a WhatsApp link to ask about that specific event.
 const eventDetails = {
   'camp-junior': {
-    emoji: '🏐',
     de: { title: 'Junior Beachvolleyball-Camp', desc: '5-tägiges Trainingscamp für Jugendliche (Jg. 10–18, mind. 10 Trainings vorausgesetzt). Täglich 4–5 Stunden Beachvolleyball: Technik, Taktik, Athletik, plus Abschlussturnier. Übernachtung im Zelt möglich, Verpflegung wählbar.', msg: 'Hallo, ich interessiere mich für das Junior Beachvolleyball-Camp.' },
     en: { title: 'Junior Beachvolleyball Camp', desc: 'A 5-day training camp for teens (born 2008–2016, at least 10 prior trainings required). 4–5 hours of beach volleyball daily: technique, tactics, athletics, plus a final tournament. Tent accommodation available, meals optional.', msg: "Hi, I'm interested in the Junior Beachvolleyball Camp." },
   },
   'camp-auffahrt': {
-    emoji: '☀️',
     de: { title: 'Beach-Camp Auffahrt', desc: 'Trainingscamp für Erwachsene (ab 18) über Auffahrt. Geleitete Trainings auf allen Niveaus, max. 8 Teilnehmende pro Feld. Camping vor Ort oder eigene Anreise möglich, Verpflegung durch den Camp-Koch.', msg: 'Hallo, ich interessiere mich für das Beach-Camp Auffahrt.' },
     en: { title: 'Beach Camp Auffahrt', desc: 'A training camp for adults (18+) over the Ascension weekend. Guided training at all levels, max. 8 participants per court. On-site camping or commute, meals by the camp cook.', msg: "Hi, I'm interested in the Beach Camp Auffahrt." },
   },
   'weihnachtsturnier': {
-    emoji: '🎄',
     de: { title: 'Weihnachtsturnier', desc: 'Traditionelles Hallenturnier kurz vor Weihnachten, mit zwei Kategorien: Freaks (Spieler:innen mit Lizenz bis NLA B) und Plausch (max. 1 lizenzierter Mann oder 2 lizenzierte Frauen pro Team).', msg: 'Hallo, ich interessiere mich für das Weihnachtsturnier.' },
     en: { title: 'Christmas Tournament', desc: "A traditional indoor tournament just before Christmas, with two categories: Freaks (licensed players up to NLA B) and Plausch (max. 1 licensed man or 2 licensed women per team).", msg: "Hi, I'm interested in the Christmas Tournament." },
   },
   'a2-turnier': {
-    emoji: '🏆',
-    de: { title: 'A2 Beachturnier', desc: 'Seit 2014 organisiert der Beachsportclub Surselva jährlich ein A2-Beachturnier auf vier Feldern in Ilanz — zwei Tage Beachvolleyball auf A2-Niveau mit Schweizer Teams.', msg: 'Hallo, ich interessiere mich für das A2 Beachturnier.' },
-    en: { title: 'A2 Beach Tournament', desc: 'Since 2014, Beachsportclub Surselva has run an annual A2-level beach tournament on four courts in Ilanz — two days of beach volleyball with Swiss teams.', msg: "Hi, I'm interested in the A2 Beach Tournament." },
+    de: { title: 'A2 Beachturnier', desc: 'Seit 2014 organisiert der Beachsportclub Surselva jährlich ein A2-Beachturnier auf vier Feldern in Ilanz: zwei Tage Beachvolleyball auf A2-Niveau mit Schweizer Teams.', msg: 'Hallo, ich interessiere mich für das A2 Beachturnier.' },
+    en: { title: 'A2 Beach Tournament', desc: 'Since 2014, Beachsportclub Surselva has run an annual A2-level beach tournament on four courts in Ilanz: two days of beach volleyball with Swiss teams.', msg: "Hi, I'm interested in the A2 Beach Tournament." },
   },
 };
 const eventModal = document.getElementById('eventModal');
@@ -212,7 +208,6 @@ function openEventModal(key) {
   const data = eventDetails[key];
   if (!data || !eventModal) return;
   const lang = data[currentLang] || data.de;
-  document.getElementById('eventModalEmoji').textContent = data.emoji;
   document.getElementById('eventModalTitle').textContent = lang.title;
   document.getElementById('eventModalDesc').textContent = lang.desc;
   document.getElementById('eventModalCta').href = 'https://wa.me/41787464683?text=' + encodeURIComponent(lang.msg);
@@ -259,7 +254,7 @@ if (contactForm) {
         contactBtn.textContent = currentLang === 'en' ? 'Send message' : 'Nachricht senden';
         if (contactNote) {
           contactNote.textContent = currentLang === 'en'
-            ? 'That did not work — please email roman.cantieni@hotmail.com directly instead.'
+            ? 'That did not work. Please email roman.cantieni@hotmail.com directly instead.'
             : 'Das hat leider nicht geklappt. Schreib stattdessen direkt an roman.cantieni@hotmail.com.';
           contactNote.style.color = '#c0392b';
         }

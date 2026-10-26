@@ -316,7 +316,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .press-ring-date{ font-size:0.74rem; color:var(--ink-muted); font-variant-numeric:tabular-nums; }
 .press-ring-noimg{ background:var(--navy); filter:none; display:flex; align-items:center; justify-content:center; }
 .press-ring-link:hover .press-ring-noimg, .press-ring-link:focus-visible .press-ring-noimg{ transform:scale(1.06); border-color:var(--sand); }
-.press-ring-icon{ font-size:2.1rem; line-height:1; filter:grayscale(0.4); }
+.press-ring-icon{ width:34px; height:34px; color:#fff; }
 .press-ring-link{ text-decoration:none; color:inherit; }
 .press-modal-box{ width:min(560px, 100%); }
 .press-modal-photo{ width:100%; height:340px; background-size:cover; background-position:center; }
@@ -370,7 +370,6 @@ main > section + section{ border-top:1px solid var(--line); }
 .cal-embed{ width:100%; height:640px; border:0; display:block; }
 .cal-book{ background:var(--navy); color:#fff; border-radius:var(--radius); padding:1.6rem 1.4rem; box-shadow:var(--shadow); margin-top:1.2rem; }
 .cal-book-row{ display:flex; align-items:center; gap:1.2rem; text-align:left; }
-.cal-book-icon{ font-size:1.8rem; flex-shrink:0; }
 .cal-book-row > div{ flex:1; }
 .cal-book h3{ color:#fff; font-size:1.1rem; margin-bottom:0.4rem; }
 .cal-book p{ color:rgba(255,255,255,0.75); font-size:0.85rem; margin:0; }
@@ -394,7 +393,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .map-grid{ display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap; }
 .map-pin-row{ display:flex; align-items:center; gap:0.7rem; background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius); padding:0.6rem 1.3rem 0.6rem 0.7rem; text-decoration:none; color:var(--ink); transition:border-color 0.2s ease; }
 .map-pin-row:hover{ border-color:var(--sand); }
-.map-pin-emoji{ font-size:1.3rem; line-height:1; }
+.map-pin-icon{ width:22px; height:22px; flex-shrink:0; color:var(--sand-deep); }
 .map-info{ display:flex; flex-direction:column; }
 .map-info-title{ font-family:"Bebas Neue", "Oswald"; font-size:0.88rem; text-transform:uppercase; letter-spacing:0.02em; }
 .map-info-sub{ font-size:0.76rem; color:var(--ink-muted); }
@@ -482,7 +481,7 @@ main > section + section{ border-top:1px solid var(--line); }
   .court-half .content h2{ font-size:2.1rem; }
   .court-half .content{ padding:0 0.5rem; }
   .press-ring-photo{ width:88px; height:88px; }
-  .press-ring-icon{ font-size:1.7rem; }
+  .press-ring-icon{ width:27px; height:27px; }
   .press-ring-row{ gap:1.1rem; }
   .event-card{ height:240px; }
   .drawer{ width:min(280px, 88vw); padding:5rem 1.2rem 2rem; }
