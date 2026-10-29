@@ -211,6 +211,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .modal-fact ul{ margin:0; padding-left:1.1rem; font-size:0.82rem; color:var(--ink-muted); }
 .modal-fact li{ margin-bottom:0.25rem; }
 .modal-fact p{ font-size:0.82rem; margin:0; }
+.modal-fact p a{ color:var(--sand-deep); text-decoration:underline; }
 .event-modal-box{ width:min(480px, 100%); }
 .event-modal-box .modal-footer{ text-align:center; padding-top:2.4rem; }
 .event-modal-box h3{ font-size:1.3rem; margin-bottom:1.1rem; }
@@ -405,6 +406,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .cal-book p{ color:rgba(255,255,255,0.75); font-size:0.85rem; margin:0; }
 .cal-book-row .btn{ flex-shrink:0; }
 .fine.center{ text-align:center; max-width:60ch; margin:1.4rem auto 0; }
+.fine.center a{ color:var(--sand-deep); text-decoration:underline; }
 @media (max-width:700px){ .cal-book-row{ flex-direction:column; text-align:center; } .cal-embed{ height:520px; } }
 
 /* ============ GALLERY / VIDEO GRID ============ */
@@ -421,6 +423,7 @@ main > section + section{ border-top:1px solid var(--line); }
 
 /* ============ MAPS ============ */
 .map-grid{ display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap; }
+.section-narrow .map-grid{ margin-top:1.4rem; }
 .map-pin-row{ display:flex; align-items:center; gap:0.7rem; background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius); padding:0.6rem 1.3rem 0.6rem 0.7rem; text-decoration:none; color:var(--ink); transition:border-color 0.2s ease; }
 .map-pin-row:hover{ border-color:var(--sand); }
 .map-pin-icon{ width:22px; height:22px; flex-shrink:0; color:var(--sand-deep); }

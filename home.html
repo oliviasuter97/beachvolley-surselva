@@ -23,12 +23,10 @@
   <div class="wrap navbar">
     <a href="#top" class="logo"><img src="images/logo/volley-surselva-logo.png" alt="Volley Surselva" class="logo-img"></a>
     <nav class="links" aria-label="Hauptnavigation">
-      <a href="#teams">Indoor</a>
-      <a href="#beach-anlage">Beach</a>
       <a href="#teams">Teams</a>
-      <a href="#events" class="i18n" data-de="Events" data-en="Events">Events</a>
-      <a href="#standorte" class="i18n" data-de="Standorte" data-en="Locations">Standorte</a>
-      <a href="#kontakt" class="i18n" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      <a href="#beach-anlage">Beach</a>
+      <a href="#events" class="i18n" data-de="Camps & Events" data-en="Camps & Events">Camps & Events</a>
+      <a href="#kontakt" class="i18n" data-de="Mitmachen" data-en="Get involved">Mitmachen</a>
     </nav>
     <div class="lang-toggle lang-toggle--inline" role="group" aria-label="Sprache / Language">
       <button class="lang-btn active" data-lang="de" type="button">DE</button>
@@ -52,10 +50,9 @@
   </div>
   <ul>
     <li><a href="#teams">Teams</a></li>
-    <li><a href="#events" class="i18n" data-de="Events" data-en="Events">Events</a></li>
-    <li><a href="#standorte" class="i18n" data-de="Standorte" data-en="Locations">Standorte</a></li>
+    <li><a href="#events" class="i18n" data-de="Camps & Events" data-en="Camps & Events">Camps & Events</a></li>
     <li><a href="#" class="book-cta i18n" data-de="Platz buchen" data-en="Book a Court">Platz buchen</a></li>
-    <li><a href="#kontakt" class="i18n" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+    <li><a href="#kontakt" class="i18n" data-de="Mitmachen" data-en="Get involved">Mitmachen</a></li>
   </ul>
 </div>
 
@@ -98,6 +95,10 @@
         <div class="modal-fact">
           <div class="modal-fact-label i18n" data-de="Trainingszeiten" data-en="Training times">Trainingszeiten</div>
           <p id="teamModalTrainingValue"></p>
+        </div>
+        <div class="modal-fact">
+          <div class="modal-fact-label i18n" data-de="Halle" data-en="Venue">Halle</div>
+          <p><a href="https://maps.app.goo.gl/qP39YAXxyxfWTqDg7" target="_blank" rel="noopener" class="i18n" data-de="Talentschule Surselva, Ilanz →" data-en="Talentschule Surselva, Ilanz →">Talentschule Surselva, Ilanz →</a></p>
         </div>
         <div class="modal-fact" id="teamModalCoachBox" hidden>
           <div class="modal-fact-label i18n" data-de="Trainer" data-en="Coach">Trainer</div>
@@ -308,7 +309,11 @@
       </div>
     </div>
     <div class="wrap">
-      <p class="fine center i18n" data-de="Minis und Juniors melden sich über das offizielle Anmeldeformular für Kinder und Jugendliche bis 20 an." data-en="Minis and Juniors sign up via the official registration form for children and youth up to age 20.">Minis und Juniors melden sich über das offizielle Anmeldeformular für Kinder und Jugendliche bis 20 an.</p>
+      <p class="fine center">
+        <span class="i18n" data-de="Minis und Juniors melden sich über das" data-en="Minis and Juniors sign up via the">Minis und Juniors melden sich über das</span>
+        <a href="anmeldung-jugend.html" class="i18n" data-de="offizielle Anmeldeformular" data-en="official registration form">offizielle Anmeldeformular</a>
+        <span class="i18n" data-de="für Kinder und Jugendliche bis 20 an." data-en="for children and youth up to age 20.">für Kinder und Jugendliche bis 20 an.</span>
+      </p>
     </div>
   </section>
 
@@ -471,12 +476,11 @@
     </div>
   </section>
 
-  <section id="standorte" class="reveal">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow i18n" data-de="Wo wir spielen" data-en="Where we play">Wo wir spielen</div>
-        <h2 class="i18n" data-de="Standorte" data-en="Locations">Standorte</h2>
-      </div>
+  <section id="kontakt" class="reveal">
+    <div class="wrap section-narrow">
+      <div class="eyebrow i18n" data-de="Mitmachen" data-en="Get involved">Mitmachen</div>
+      <h2 class="i18n" data-de="Kontakt & Anmeldung" data-en="Contact & Sign-up">Kontakt & Anmeldung</h2>
+      <p class="sec-dek i18n" data-de="Interesse an einem Team, einem Training oder einem Camp? Kurz schreiben, wir melden uns." data-en="Interested in a team, a training, or a camp? Send a quick note and we'll get back to you.">Interesse an einem Team, einem Training oder einem Camp? Kurz schreiben, wir melden uns.</p>
       <div class="map-grid">
         <a class="map-pin-row" href="https://maps.app.goo.gl/qP39YAXxyxfWTqDg7" target="_blank" rel="noopener">
           <svg class="map-pin-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -493,14 +497,6 @@
           </span>
         </a>
       </div>
-    </div>
-  </section>
-
-  <section id="kontakt" class="reveal">
-    <div class="wrap section-narrow">
-      <div class="eyebrow i18n" data-de="Mitmachen" data-en="Get involved">Mitmachen</div>
-      <h2 class="i18n" data-de="Kontakt & Anmeldung" data-en="Contact & Sign-up">Kontakt & Anmeldung</h2>
-      <p class="sec-dek i18n" data-de="Interesse an einem Team, einem Training oder einem Camp? Kurz schreiben, wir melden uns." data-en="Interested in a team, a training, or a camp? Send a quick note and we'll get back to you.">Interesse an einem Team, einem Training oder einem Camp? Kurz schreiben, wir melden uns.</p>
       <form class="contact-form" id="contactForm">
         <input type="hidden" name="_subject" value="Neue Kontaktanfrage von der Website">
         <input type="hidden" name="_captcha" value="false">
@@ -531,7 +527,6 @@
             <option value="Probetraining" class="i18n" data-de="Probetraining" data-en="Trial training">Probetraining</option>
             <option class="i18n" data-de="Indoor-Team" data-en="Indoor team">Indoor-Team</option>
             <option class="i18n" data-de="Hallentraining (Minis/Juniors)" data-en="Indoor training (Minis/Juniors)">Hallentraining (Minis/Juniors)</option>
-            <option class="i18n" data-de="Beach-Platz reservieren" data-en="Reserve a beach court">Beach-Platz reservieren</option>
             <option class="i18n" data-de="Camp" data-en="Camp">Camp</option>
             <option class="i18n" data-de="Sonstiges" data-en="Other">Sonstiges</option>
           </select>

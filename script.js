@@ -337,11 +337,12 @@ if (!reduced) {
   document.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
 }
 
-// Camp/retreat promo — surfaces once per session when the visitor reaches
-// the "Unser Programm" camps section, since that's when the offer is relevant.
+// Camp/retreat promo — surfaces once per session once the visitor has
+// scrolled through about half the page, but never while the contact form
+// is on screen (that's its own call-to-action, no need to compete with it).
 const campPromo = document.getElementById('campPromo');
-const eventsSection = document.getElementById('events');
-if (campPromo && eventsSection) {
+const kontaktSection = document.getElementById('kontakt');
+if (campPromo) {
   const dismissed = sessionStorage.getItem('campPromoDismissed');
   const hidePromo = () => {
     campPromo.classList.remove('show');
@@ -350,16 +351,18 @@ if (campPromo && eventsSection) {
   document.getElementById('campPromoClose').addEventListener('click', hidePromo);
   document.getElementById('campPromoCta').addEventListener('click', hidePromo);
   if (!dismissed) {
-    const promoIo = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          campPromo.hidden = false;
-          requestAnimationFrame(() => campPromo.classList.add('show'));
-          promoIo.disconnect();
-        }
-      });
-    }, { threshold: 0.4 });
-    promoIo.observe(eventsSection);
+    campPromo.hidden = false;
+    const updatePromo = () => {
+      const depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      let overForm = false;
+      if (kontaktSection) {
+        const r = kontaktSection.getBoundingClientRect();
+        overForm = r.top < window.innerHeight && r.bottom > 0;
+      }
+      campPromo.classList.toggle('show', depth >= 0.5 && !overForm);
+    };
+    window.addEventListener('scroll', updatePromo, { passive: true });
+    updatePromo();
   }
 }
 
@@ -517,9 +520,11 @@ if (teamSliderTrack) {
 
   const teamModal = document.getElementById('teamModal');
   const teamModalClose = document.getElementById('teamModalClose');
+  let activeTeamKey = null;
   function openTeamModal(key) {
     const data = teamData[key];
     if (!data || !teamModal) return;
+    activeTeamKey = key;
     const lang = currentLang === 'en' ? 'en' : 'de';
     document.getElementById('teamModalPhoto').style.backgroundImage = data.photo ? `url('${data.photo}')` : 'none';
     document.getElementById('teamModalTitle').textContent = data.name;
@@ -575,7 +580,20 @@ if (teamSliderTrack) {
     slide.addEventListener('click', () => openTeamModal(slide.dataset.team));
   });
   const teamModalSignupLink = document.getElementById('teamModalSignupLink');
-  if (teamModalSignupLink) teamModalSignupLink.addEventListener('click', closeTeamModal);
+  if (teamModalSignupLink) {
+    teamModalSignupLink.addEventListener('click', () => {
+      closeTeamModal();
+      const data = teamData[activeTeamKey];
+      if (data && data.signupHref === '#kontakt') {
+        const interesseSelect = document.querySelector('#contactForm select[name="interesse"]');
+        if (interesseSelect) interesseSelect.value = 'Indoor-Team';
+        const nachricht = document.querySelector('#contactForm textarea[name="nachricht"]');
+        if (nachricht && !nachricht.value) {
+          nachricht.value = (currentLang === 'en' ? 'Interested in: ' : 'Interesse am Team: ') + data.name;
+        }
+      }
+    });
+  }
   if (teamModalClose) teamModalClose.addEventListener('click', closeTeamModal);
   if (teamModal) teamModal.addEventListener('click', (e) => { if (e.target === teamModal) closeTeamModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeTeamModal(); });
