@@ -187,7 +187,7 @@ main > section + section{ border-top:1px solid var(--line); }
 @media (max-width:900px){ .hero-doodle{ display:none; } }
 .ball-wrap.following .ball-inner{ animation:none; }
 @media (prefers-reduced-motion: reduce){ .ball-inner, .ball-wrap .ball-icon{ animation:none; } }
-@media (hover:none){ .ball-wrap{ display:none; } .court, .court-half, .court-half .content .arrow{ cursor:pointer; } }
+@media (hover:none){ .ball-wrap{ display:none; } .court, .court-half, .court-half .content .arrow, .intro-band{ cursor:auto; } }
 
 /* ============ VIDEO MODAL ============ */
 .modal-overlay{ position:fixed; inset:0; z-index:500; background:rgba(0,10,48,0.88); display:flex; align-items:center; justify-content:center; padding:2rem; opacity:0; visibility:hidden; transition:opacity 0.25s ease, visibility 0.25s ease; }
@@ -213,7 +213,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .reveal.visible{ opacity:1; transform:translateY(0); }
 
 /* ============ INTRO BAND ============ */
-.intro-band{ position:relative; overflow:hidden; min-height:92vh; display:flex; align-items:center; padding:6.5rem 0 3rem; }
+.intro-band{ position:relative; overflow:hidden; min-height:92vh; display:flex; align-items:center; padding:6.5rem 0 3rem; cursor:none; }
 .intro-band-photo-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; filter:saturate(1.25) contrast(1.08); }
 .intro-band-veil{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,5,20,0.55) 0%, rgba(0,5,20,0.12) 45%, rgba(0,5,20,0.5) 100%); z-index:0; }
 .intro-band-content{ position:relative; z-index:1; width:100%; }
@@ -280,14 +280,6 @@ main > section + section{ border-top:1px solid var(--line); }
 .team-table tbody tr:last-child td{ border-bottom:none; }
 .team-modal-stand{ margin-top:1rem; }
 @media (max-width:640px){ .team-modal-tables{ grid-template-columns:1fr; } }
-
-/* ============ TRAININGSZEITEN ============ */
-.training-table{ width:100%; border-collapse:collapse; margin-top:0.4rem; }
-.training-table th{ text-align:left; font-family:"Anton", "Oswald"; font-size:0.72rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-muted); padding:0.6rem 0.4rem; border-bottom:1px solid var(--line); }
-.training-table td{ padding:0.7rem 0.4rem; border-bottom:1px solid var(--line); font-size:0.92rem; }
-.training-table tbody tr:last-child td{ border-bottom:none; }
-.training-table td:first-child{ font-family:"Anton", "Oswald"; font-weight:400; }
-.training-table td:last-child{ text-align:right; color:var(--ink-muted); font-variant-numeric:tabular-nums; }
 
 /* ============ EVENT CARDS ============ */
 .event-card-row{ display:grid; grid-template-columns:repeat(4, 1fr); gap:1rem; }
@@ -420,8 +412,8 @@ main > section + section{ border-top:1px solid var(--line); }
 .social-icon span{ font-size:0.72rem; font-family:"Anton", "Oswald"; letter-spacing:0.02em; }
 
 /* ============ SPONSORS ============ */
-.sponsor-strip{ background:#f4f1ea; padding:2rem 0; overflow:hidden; }
-.sponsor-strip .eyebrow{ text-align:center; color:#a97538; }
+.sponsor-strip{ background:rgba(255,255,255,0.9); padding:2rem 0; overflow:hidden; }
+.sponsor-strip .eyebrow{ text-align:center; color:var(--sand-deep); }
 .sponsor-viewport{
   overflow:hidden; width:100%; margin-top:1.4rem;
   -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
@@ -429,9 +421,9 @@ main > section + section{ border-top:1px solid var(--line); }
 }
 .sponsor-track{ display:flex; align-items:center; gap:3rem; width:max-content; animation: gallery-scroll 28s linear infinite; }
 .sponsor-viewport:hover .sponsor-track, .sponsor-viewport:focus-within .sponsor-track{ animation-play-state:paused; }
-.sponsor-track img{ height:40px; width:auto; max-width:140px; object-fit:contain; opacity:0.8; flex-shrink:0; transition:opacity 0.2s ease; }
+.sponsor-track img{ height:48px; width:auto; max-width:168px; object-fit:contain; opacity:0.8; flex-shrink:0; transition:opacity 0.2s ease; }
 .sponsor-track img:hover{ opacity:1; }
-@media (max-width:480px){ .sponsor-track img{ height:30px; } .sponsor-track{ gap:2rem; } }
+@media (max-width:480px){ .sponsor-track img{ height:36px; } .sponsor-track{ gap:2rem; } }
 @media (prefers-reduced-motion: reduce){
   .sponsor-track{ animation:none; }
   .sponsor-viewport{ overflow-x:auto; -webkit-mask-image:none; mask-image:none; }
