@@ -19,11 +19,6 @@
   <div class="loader-label i18n" data-de="Aufwärmen …" data-en="Warming up …">Aufwärmen …</div>
 </div>
 
-<div class="lang-toggle" role="group" aria-label="Sprache / Language">
-  <button class="lang-btn active" data-lang="de" type="button">DE</button>
-  <button class="lang-btn" data-lang="en" type="button">EN</button>
-</div>
-
 <header class="site-header site-header--overlay" id="siteHeader">
   <div class="wrap navbar">
     <a href="#top" class="logo"><img src="images/logo/volley-surselva-logo.png" alt="Volley Surselva" class="logo-img"></a>
@@ -35,6 +30,10 @@
       <a href="#standorte" class="i18n" data-de="Standorte" data-en="Locations">Standorte</a>
       <a href="#kontakt" class="i18n" data-de="Kontakt" data-en="Contact">Kontakt</a>
     </nav>
+    <div class="lang-toggle lang-toggle--inline" role="group" aria-label="Sprache / Language">
+      <button class="lang-btn active" data-lang="de" type="button">DE</button>
+      <button class="lang-btn" data-lang="en" type="button">EN</button>
+    </div>
     <a href="#" class="btn btn-primary nav-cta book-cta i18n" data-de="Platz buchen" data-en="Book a Court">Platz buchen</a>
     <button class="drawer-toggle" id="drawerToggle" aria-expanded="false" aria-controls="drawer" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
@@ -43,6 +42,10 @@
 </header>
 
 <div class="drawer" id="drawer">
+  <div class="lang-toggle lang-toggle--drawer" role="group" aria-label="Sprache / Language">
+    <button class="lang-btn active" data-lang="de" type="button">DE</button>
+    <button class="lang-btn" data-lang="en" type="button">EN</button>
+  </div>
   <div class="drawer-split">
     <a href="#teams" class="d-indoor">Indoor</a>
     <a href="#beach-anlage" class="d-beach">Beach</a>
@@ -86,6 +89,7 @@
     <div class="team-modal-photo" id="teamModalPhoto"></div>
     <div class="modal-footer">
       <h3 id="teamModalTitle"></h3>
+      <p id="teamModalDesc" class="team-modal-desc" hidden></p>
       <div class="team-modal-facts">
         <div class="modal-fact" id="teamModalInfoBox" hidden>
           <div class="modal-fact-label" id="teamModalInfoLabel"></div>
@@ -140,13 +144,40 @@
         <span class="i18n" data-de="Sand oder Halle." data-en="Sand or hall.">Sand oder Halle.</span>
         <span class="hook-accent i18n" data-de="Hauptsache Volleyball." data-en="As long as it's volleyball.">Hauptsache Volleyball.</span>
       </h1>
-      <p class="lead i18n" data-de="Zwei Vereine, ein Ziel: Volleyball in der Surselva fördern. Volley Surselva und der Beachsportclub Surselva bieten wöchentliche Hallentrainings, einen eigenen Beachvolleyplatz in Ilanz und Camps für Kinder, Jugendliche und Erwachsene." data-en="Two clubs, one goal: growing volleyball in the Surselva. Volley Surselva and Beachsportclub Surselva run weekly indoor trainings, our own beach volleyball courts in Ilanz, and camps for kids, teens and adults.">Zwei Vereine, ein Ziel: Volleyball in der Surselva fördern. Volley Surselva und der Beachsportclub Surselva bieten wöchentliche Hallentrainings, einen eigenen Beachvolleyplatz in Ilanz und Camps für Kinder, Jugendliche und Erwachsene.</p>
+      <p class="lead i18n" data-de="Halle im Winter, Sand im Sommer. Für alle in der Surselva, vom Einsteiger bis zur 4. Liga." data-en="Indoor in winter, sand in summer. For everyone in the Surselva, from beginners to 4th league.">Halle im Winter, Sand im Sommer. Für alle in der Surselva, vom Einsteiger bis zur 4. Liga.</p>
+      <div class="hero-ctas">
+        <a href="#kontakt" id="heroTrialCta" class="btn btn-primary i18n" data-de="Probetraining anfragen →" data-en="Request a trial training →">Probetraining anfragen →</a>
+        <a href="#" class="btn btn-secondary book-cta i18n" data-de="Beachplatz buchen →" data-en="Book a beach court →" data-de-msg="Hallo, ich möchte gerne einen Beachplatz buchen." data-en-msg="Hi, I would like to book a beach court.">Beachplatz buchen →</a>
+      </div>
     </div>
     <div class="ball-wrap" id="hero-ball" tabindex="0" role="img" aria-label="Volleyball">
       <div class="ball-inner">
         <img class="ball-icon" src="images/ball-photo.jpg" alt="">
       </div>
       <span class="hero-doodle i18n" data-de="folg mir!" data-en="follow me!">folg mir!</span>
+    </div>
+  </section>
+
+  <section id="neu-hier" class="reveal">
+    <div class="wrap">
+      <div class="section-head center">
+        <div class="eyebrow i18n" data-de="Neu hier?" data-en="New here?">Neu hier?</div>
+        <h2 class="i18n" data-de="So einfach geht's" data-en="Here's how it works">So einfach geht's</h2>
+      </div>
+      <div class="steps-row">
+        <div class="step">
+          <span class="step-num">1</span>
+          <p class="i18n" data-de="Team aussuchen, auch ohne Erfahrung gibt's einen Platz." data-en="Pick a team, no experience necessary.">Team aussuchen, auch ohne Erfahrung gibt's einen Platz.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <p class="i18n" data-de="Probetraining anfragen, gratis und unverbindlich." data-en="Request a trial training, free and no obligation.">Probetraining anfragen, gratis und unverbindlich.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <p class="i18n" data-de="Turnschuhe einpacken und vorbeikommen." data-en="Pack your sneakers and come by.">Turnschuhe einpacken und vorbeikommen.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -194,6 +225,7 @@
           <button type="button" class="team-slide" data-team="damen" style="background-image:url('images/teams/damen.jpg');">
             <span class="team-slide-badge team-slide-badge-recruit i18n" data-de="Sucht Spielerinnen" data-en="Recruiting">Sucht Spielerinnen</span>
             <span class="team-slide-content">
+              <span class="team-slide-level i18n" data-de="Liga-Niveau" data-en="League level">Liga-Niveau</span>
               <span class="team-slide-cat">Damen</span>
               <span class="team-slide-name">Volley Surselva Damen</span>
               <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A, Di 19:30–21:15" data-en="4th league, Group A, Tue 19:30–21:15">4. Liga, Gruppe A, Di 19:30–21:15</span>
@@ -204,6 +236,7 @@
             <span class="team-slide-badge team-slide-badge-recruit i18n" data-de="Sucht Spieler" data-en="Recruiting">Sucht Spieler</span>
             <span class="team-slide-badge team-slide-badge-right i18n" data-de="Foto folgt" data-en="Photo coming">Foto folgt</span>
             <span class="team-slide-content">
+              <span class="team-slide-level i18n" data-de="Liga-Niveau" data-en="League level">Liga-Niveau</span>
               <span class="team-slide-cat">Herren 1</span>
               <span class="team-slide-name">Volley Surselva 1</span>
               <span class="team-slide-meta i18n" data-de="4. Liga, Fr 20:15–22:00" data-en="4th league, Fri 20:15–22:00">4. Liga, Fr 20:15–22:00</span>
@@ -213,6 +246,7 @@
           <button type="button" class="team-slide" data-team="herren2" style="background-image:url('images/teams/herren-2.jpg');">
             <span class="team-slide-badge team-slide-badge-recruit i18n" data-de="Sucht Spieler" data-en="Recruiting">Sucht Spieler</span>
             <span class="team-slide-content">
+              <span class="team-slide-level i18n" data-de="Mit Erfahrung" data-en="Experience helpful">Mit Erfahrung</span>
               <span class="team-slide-cat">Herren 2</span>
               <span class="team-slide-name">Volley Surselva 2</span>
               <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A, Do 19:00–21:00" data-en="4th league, Group A, Thu 19:00–21:00">4. Liga, Gruppe A, Do 19:00–21:00</span>
@@ -253,6 +287,7 @@
             <span class="team-slide-badge i18n" data-de="Für alle" data-en="Open to all">Für alle</span>
             <span class="team-slide-badge team-slide-badge-right i18n" data-de="Foto folgt" data-en="Photo coming">Foto folgt</span>
             <span class="team-slide-content">
+              <span class="team-slide-level i18n" data-de="Einsteiger willkommen" data-en="Beginners welcome">Einsteiger willkommen</span>
               <span class="team-slide-cat i18n" data-de="Plausch" data-en="Recreational">Plausch</span>
               <span class="team-slide-name">Plausch Dienstag</span>
               <span class="team-slide-meta i18n" data-de="Di, Zeit folgt" data-en="Tue, Time TBA">Di, Zeit folgt</span>
@@ -356,7 +391,7 @@
         <a href="#" class="btn btn-primary book-cta i18n" data-de="Platz buchen" data-en="Book a Court">Platz buchen</a>
         <a href="#kalender" class="btn btn-secondary i18n" data-de="Zu Kalender & Buchung →" data-en="To calendar & booking →">Zu Kalender & Buchung →</a>
       </div>
-      <p class="fine i18n" data-de="Die Buchung läuft aktuell über WhatsApp bei Roman oder Alex." data-en="Booking currently runs through WhatsApp with Roman or Alex.">Die Buchung läuft aktuell über WhatsApp bei Roman oder Alex.</p>
+      <p class="fine i18n" data-de="Nicht-Mitglied? Kein Problem: per WhatsApp anfragen, CHF 5/Std. vor Ort per Twint. Mitglieder tragen sich direkt im Kalender ein." data-en="Not a member? No problem: just ask via WhatsApp, CHF 5/hour on-site via Twint. Members can book themselves directly in the calendar.">Nicht-Mitglied? Kein Problem: per WhatsApp anfragen, CHF 5/Std. vor Ort per Twint. Mitglieder tragen sich direkt im Kalender ein.</p>
     </div>
   </section>
 
@@ -377,7 +412,7 @@
         </div>
         <a href="#" class="btn btn-primary book-cta i18n" data-de="Zugriff anfragen" data-en="Request access" data-de-msg="Hallo, ich möchte gerne Zugriff auf den Reservationskalender." data-en-msg="Hi, I'd like access to the reservation calendar.">Zugriff anfragen</a>
       </div>
-      <p class="fine center i18n" data-de="Beachfeld: April–September, täglich 8–22 Uhr. Nicht-Mitglieder: CHF 5/Std. vor Ort per Twint." data-en="Beach court: April–September, daily 8am–10pm. Non-members: CHF 5/hour on-site via Twint.">Beachfeld: April–September, täglich 8–22 Uhr. Nicht-Mitglieder: CHF 5/Std. vor Ort per Twint.</p>
+      <p class="fine center i18n" data-de="Beachfeld: April–September, täglich 8–22 Uhr." data-en="Beach court: April–September, daily 8am–10pm.">Beachfeld: April–September, täglich 8–22 Uhr.</p>
     </div>
   </section>
 
@@ -493,6 +528,7 @@
         <label class="form-full">
           <span class="i18n" data-de="Ich interessiere mich für" data-en="I'm interested in">Ich interessiere mich für</span>
           <select name="interesse">
+            <option value="Probetraining" class="i18n" data-de="Probetraining" data-en="Trial training">Probetraining</option>
             <option class="i18n" data-de="Indoor-Team" data-en="Indoor team">Indoor-Team</option>
             <option class="i18n" data-de="Hallentraining (Minis/Juniors)" data-en="Indoor training (Minis/Juniors)">Hallentraining (Minis/Juniors)</option>
             <option class="i18n" data-de="Beach-Platz reservieren" data-en="Reserve a beach court">Beach-Platz reservieren</option>

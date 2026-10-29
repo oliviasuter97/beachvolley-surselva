@@ -45,6 +45,16 @@ langBtns.forEach((btn) => {
 });
 updateBookLinks('de');
 
+// Hero "Probetraining anfragen" CTA — jumps to the contact form and
+// pre-selects "Probetraining" in the interest dropdown.
+const heroTrialCta = document.getElementById('heroTrialCta');
+if (heroTrialCta) {
+  heroTrialCta.addEventListener('click', () => {
+    const interesseSelect = document.querySelector('#contactForm select[name="interesse"]');
+    if (interesseSelect) interesseSelect.value = 'Probetraining';
+  });
+}
+
 // Mobile drawer
 const drawerToggle = document.getElementById('drawerToggle');
 const drawer = document.getElementById('drawer');
@@ -250,6 +260,8 @@ function closeEventModal() {
 document.querySelectorAll('.event-card').forEach((btn) => {
   btn.addEventListener('click', () => openEventModal(btn.dataset.event));
 });
+const eventModalFormCta = document.getElementById('eventModalFormCta');
+if (eventModalFormCta) eventModalFormCta.addEventListener('click', closeEventModal);
 if (eventModalClose) eventModalClose.addEventListener('click', closeEventModal);
 if (eventModal) eventModal.addEventListener('click', (e) => { if (e.target === eventModal) closeEventModal(); });
 
@@ -455,6 +467,10 @@ const teamData = {
     category: { de: 'Für alle', en: 'Open to all' },
     training: { de: 'Di, Zeit folgt', en: 'Tue, Time TBA' },
     signupHref: '#kontakt',
+    desc: {
+      de: 'Kein Leistungsdruck, kein Spielbetrieb. Einfach spielen. Für alle ab 16, egal ob Neuling oder seit Jahren raus. Talentschule Ilanz. Erstes Mal gratis.',
+      en: "No pressure, no league matches. Just play. For everyone 16 and up, whether you're new or getting back into it after years away. Talentschule Ilanz. First time is free.",
+    },
   },
 };
 const standingsHead = { de: ['Rg', 'Team', 'Sp', 'S', 'Pkt'], en: ['Rk', 'Team', 'Pl', 'W', 'Pts'] };
@@ -508,6 +524,14 @@ if (teamSliderTrack) {
     document.getElementById('teamModalPhoto').style.backgroundImage = data.photo ? `url('${data.photo}')` : 'none';
     document.getElementById('teamModalTitle').textContent = data.name;
 
+    const descEl = document.getElementById('teamModalDesc');
+    if (data.desc) {
+      descEl.textContent = data.desc[lang];
+      descEl.hidden = false;
+    } else {
+      descEl.hidden = true;
+    }
+
     const infoBox = document.getElementById('teamModalInfoBox');
     const info = data.league || data.category;
     if (info) {
@@ -550,6 +574,8 @@ if (teamSliderTrack) {
   slides.forEach((slide) => {
     slide.addEventListener('click', () => openTeamModal(slide.dataset.team));
   });
+  const teamModalSignupLink = document.getElementById('teamModalSignupLink');
+  if (teamModalSignupLink) teamModalSignupLink.addEventListener('click', closeTeamModal);
   if (teamModalClose) teamModalClose.addEventListener('click', closeTeamModal);
   if (teamModal) teamModal.addEventListener('click', (e) => { if (e.target === teamModal) closeTeamModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeTeamModal(); });
