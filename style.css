@@ -124,6 +124,7 @@ main > section + section{ border-top:1px solid var(--line); }
   transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none;
 }
+.btn[hidden]{ display:none; }
 .btn-primary{ background:var(--sand); color:var(--navy-deep); }
 .btn-primary:hover{ background:var(--sand-deep); }
 .btn-secondary{ background:transparent; border-color:var(--navy); color:var(--navy); }
@@ -206,6 +207,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .event-modal-box{ width:min(480px, 100%); }
 .event-modal-box .modal-footer{ text-align:center; padding-top:2.4rem; }
 .event-modal-box h3{ font-size:1.3rem; }
+.event-modal-ctas{ display:flex; gap:0.8rem; flex-wrap:wrap; justify-content:center; margin-top:1rem; }
 @media (max-width:640px){ .modal-facts{ grid-template-columns:1fr; } }
 
 /* ============ MOTION ============ */

@@ -194,8 +194,9 @@ const eventDetails = {
     en: { title: 'Beach Camp Auffahrt', desc: 'A training camp for adults (18+) over the Ascension weekend. Guided training at all levels, max. 8 participants per court. On-site camping or commute, meals by the camp cook.', msg: "Hi, I'm interested in the Beach Camp Auffahrt." },
   },
   'weihnachtsturnier': {
-    de: { title: '26. Weihnachts-Mixed-Volleyballturnier', desc: 'Sonntag, 20. Dezember 2026, Turnhallen der Schulhäuser Ilanz. Zwei Kategorien: Freaks (Spieler:innen mit Lizenz bis NLA B) und Plausch (max. 1 lizenzierter Mann oder 2 lizenzierte Frauen pro Team). Anmeldung bis 7. Dezember bei Celine Hulliger.', msg: 'Hallo, ich interessiere mich für das Weihnachtsturnier am 20. Dezember.' },
-    en: { title: '26th Christmas Mixed Tournament', desc: 'Sunday, 20 December 2026, school gyms in Ilanz. Two categories: Freaks (licensed players up to NLA B) and Plausch (max. 1 licensed man or 2 licensed women per team). Sign up by 7 December with Celine Hulliger.', msg: "Hi, I'm interested in the Christmas tournament on 20 December." },
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSd5TWvphdp09jTAKo2AsAb9VvEyswhdAYy5AHTGlIZAuaCCUA/viewform',
+    de: { title: '26. Weihnachts-Mixed-Volleyballturnier', desc: 'Sonntag, 20. Dezember 2026, Turnhallen der Schulhäuser Ilanz. Zwei Kategorien: Freaks (Spieler:innen mit Lizenz bis NLA B) und Plausch (max. 1 lizenzierter Mann oder 2 lizenzierte Frauen pro Team). Anmeldeschluss: 7. Dezember.', msg: 'Hallo, ich habe eine Frage zum Weihnachtsturnier am 20. Dezember.' },
+    en: { title: '26th Christmas Mixed Tournament', desc: 'Sunday, 20 December 2026, school gyms in Ilanz. Two categories: Freaks (licensed players up to NLA B) and Plausch (max. 1 licensed man or 2 licensed women per team). Sign-up deadline: 7 December.', msg: "Hi, I have a question about the Christmas tournament on 20 December." },
   },
   'a2-turnier': {
     de: { title: 'A2 Beachturnier', desc: 'Seit 2014 organisiert der Beachsportclub Surselva jährlich ein A2-Beachturnier auf vier Feldern in Ilanz: zwei Tage Beachvolleyball auf A2-Niveau mit Schweizer Teams.', msg: 'Hallo, ich interessiere mich für das A2 Beachturnier.' },
@@ -210,7 +211,19 @@ function openEventModal(key) {
   const lang = data[currentLang] || data.de;
   document.getElementById('eventModalTitle').textContent = lang.title;
   document.getElementById('eventModalDesc').textContent = lang.desc;
-  document.getElementById('eventModalCta').href = 'https://wa.me/41787464683?text=' + encodeURIComponent(lang.msg);
+  const waLink = document.getElementById('eventModalCta');
+  waLink.href = 'https://wa.me/41787464683?text=' + encodeURIComponent(lang.msg);
+  const formLink = document.getElementById('eventModalFormCta');
+  if (data.formUrl) {
+    formLink.href = data.formUrl;
+    formLink.hidden = false;
+    waLink.classList.remove('btn-primary');
+    waLink.classList.add('btn-secondary');
+  } else {
+    formLink.hidden = true;
+    waLink.classList.remove('btn-secondary');
+    waLink.classList.add('btn-primary');
+  }
   eventModal.classList.add('open');
   eventModal.setAttribute('aria-hidden', 'false');
 }
