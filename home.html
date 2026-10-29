@@ -61,7 +61,7 @@
     <button class="modal-close" id="eventModalClose" aria-label="Schliessen">✕</button>
     <div class="modal-footer">
       <h3 id="eventModalTitle"></h3>
-      <p id="eventModalDesc"></p>
+      <ul id="eventModalDesc" class="event-modal-facts"></ul>
       <div class="event-modal-ctas">
         <a href="#" id="eventModalFormCta" class="btn btn-primary i18n" data-de="Jetzt anmelden →" data-en="Sign up now →" target="_blank" rel="noopener" hidden>Jetzt anmelden →</a>
         <a href="#" id="eventModalCta" class="btn btn-primary book-cta i18n" data-de="Per WhatsApp fragen →" data-en="Ask via WhatsApp →">Per WhatsApp fragen →</a>
@@ -158,17 +158,17 @@
         <p class="sec-dek i18n" data-de="Diese Anlässe finden jährlich statt, einige Daten stehen schon fest." data-en="These events run every year, some dates are already confirmed.">Diese Anlässe finden jährlich statt, einige Daten stehen schon fest.</p>
       </div>
       <div class="event-card-row">
-        <button type="button" class="event-card" data-event="camp-junior" style="background-image:url('images/kids-highfive-eachother-smiling.png');">
-          <span class="event-card-date i18n" data-de="Termin folgt" data-en="Date TBA">Termin folgt</span>
-          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Beach, Jg. 10–18" data-en="Beach, Ages 10–18">Beach, Jg. 10–18</span><span class="event-card-name">Junior Camp</span></span>
+        <button type="button" class="event-card" data-event="weihnachtsturnier" style="background-image:url('images/indoor/hall-placeholder.jpg');">
+          <span class="event-card-date i18n" data-de="20. Dezember 2026" data-en="20 December 2026">20. Dezember 2026</span>
+          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Indoor, Ilanz" data-en="Indoor, Ilanz">Indoor, Ilanz</span><span class="event-card-name">Weihnachtsturnier</span></span>
         </button>
         <button type="button" class="event-card" data-event="camp-auffahrt" style="background-image:url('images/actionshot2.png');">
           <span class="event-card-date i18n" data-de="Termin folgt" data-en="Date TBA">Termin folgt</span>
           <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Beach, ab 18" data-en="Beach, 18+">Beach, ab 18</span><span class="event-card-name">Auffahrt</span></span>
         </button>
-        <button type="button" class="event-card" data-event="weihnachtsturnier" style="background-image:url('images/indoor/hall-placeholder.jpg');">
-          <span class="event-card-date i18n" data-de="20. Dezember 2026" data-en="20 December 2026">20. Dezember 2026</span>
-          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Indoor, Ilanz" data-en="Indoor, Ilanz">Indoor, Ilanz</span><span class="event-card-name">Weihnachten</span></span>
+        <button type="button" class="event-card" data-event="camp-junior" style="background-image:url('images/kids-highfive-eachother-smiling.png');">
+          <span class="event-card-date i18n" data-de="Termin folgt" data-en="Date TBA">Termin folgt</span>
+          <span class="event-card-bottom"><span class="event-card-meta i18n" data-de="Beach, Jg. 10–18" data-en="Beach, Ages 10–18">Beach, Jg. 10–18</span><span class="event-card-name">Junior Camp</span></span>
         </button>
         <button type="button" class="event-card" data-event="a2-turnier" style="background-image:url('images/volleyballfield-from-above.png');">
           <span class="event-card-date i18n" data-de="Seit 2014" data-en="Since 2014">Seit 2014</span>
@@ -192,7 +192,7 @@
         <button class="team-slider-arrow team-slider-prev" id="teamPrev" aria-label="Zurück" type="button">‹</button>
         <div class="team-slider-track" id="teamSliderTrack">
           <button type="button" class="team-slide" data-team="damen" style="background-image:url('images/teams/damen.jpg');">
-            <span class="team-slide-badge i18n" data-de="Sucht Spielerinnen" data-en="Recruiting">Sucht Spielerinnen</span>
+            <span class="team-slide-badge team-slide-badge-recruit i18n" data-de="Sucht Spielerinnen" data-en="Recruiting">Sucht Spielerinnen</span>
             <span class="team-slide-content">
               <span class="team-slide-cat">Damen</span>
               <span class="team-slide-name">Volley Surselva Damen</span>
@@ -201,7 +201,7 @@
             </span>
           </button>
           <button type="button" class="team-slide team-slide-placeholder" data-team="herren1">
-            <span class="team-slide-badge i18n" data-de="Sucht Spieler" data-en="Recruiting">Sucht Spieler</span>
+            <span class="team-slide-badge team-slide-badge-recruit i18n" data-de="Sucht Spieler" data-en="Recruiting">Sucht Spieler</span>
             <span class="team-slide-badge team-slide-badge-right i18n" data-de="Foto folgt" data-en="Photo coming">Foto folgt</span>
             <span class="team-slide-content">
               <span class="team-slide-cat">Herren 1</span>
@@ -211,7 +211,7 @@
             </span>
           </button>
           <button type="button" class="team-slide" data-team="herren2" style="background-image:url('images/teams/herren-2.jpg');">
-            <span class="team-slide-badge i18n" data-de="Sucht Spieler" data-en="Recruiting">Sucht Spieler</span>
+            <span class="team-slide-badge team-slide-badge-recruit i18n" data-de="Sucht Spieler" data-en="Recruiting">Sucht Spieler</span>
             <span class="team-slide-content">
               <span class="team-slide-cat">Herren 2</span>
               <span class="team-slide-name">Volley Surselva 2</span>
@@ -240,7 +240,7 @@
             </span>
           </button>
           <button type="button" class="team-slide team-slide-placeholder" data-team="u18frauen">
-            <span class="team-slide-badge i18n" data-de="Sucht Spielerinnen" data-en="Recruiting">Sucht Spielerinnen</span>
+            <span class="team-slide-badge team-slide-badge-recruit i18n" data-de="Sucht Spielerinnen" data-en="Recruiting">Sucht Spielerinnen</span>
             <span class="team-slide-badge team-slide-badge-right i18n" data-de="Foto folgt" data-en="Photo coming">Foto folgt</span>
             <span class="team-slide-content">
               <span class="team-slide-cat i18n" data-de="Jugend" data-en="Youth">Jugend</span>

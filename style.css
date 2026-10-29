@@ -206,7 +206,11 @@ main > section + section{ border-top:1px solid var(--line); }
 .modal-fact p{ font-size:0.82rem; margin:0; }
 .event-modal-box{ width:min(480px, 100%); }
 .event-modal-box .modal-footer{ text-align:center; padding-top:2.4rem; }
-.event-modal-box h3{ font-size:1.3rem; }
+.event-modal-box h3{ font-size:1.3rem; margin-bottom:1.1rem; }
+.event-modal-facts{ list-style:none; margin:0 0 0.4rem; padding:0; text-align:left; display:flex; flex-direction:column; gap:0.6rem; }
+.event-modal-facts li{ position:relative; padding-left:1.15rem; color:var(--ink-muted); font-size:0.92rem; line-height:1.4; }
+.event-modal-facts li::before{ content:""; position:absolute; left:0; top:0.55em; width:6px; height:6px; background:var(--sand); }
+.event-modal-facts li strong{ color:var(--ink); font-weight:600; }
 .event-modal-ctas{ display:flex; gap:0.8rem; flex-wrap:wrap; justify-content:center; margin-top:1rem; }
 @media (max-width:640px){ .modal-facts{ grid-template-columns:1fr; } }
 
@@ -252,6 +256,12 @@ main > section + section{ border-top:1px solid var(--line); }
   text-transform:uppercase; background:rgba(var(--sand-rgb), 0.85); color:var(--navy-deep); padding:0.3rem 0.7rem; border-radius:0; font-weight:600;
 }
 .team-slide-badge-right{ left:auto; right:1rem; background:rgba(0,0,0,0.5); color:#fff; }
+.team-slide-badge-recruit{
+  background:none; color:var(--sand); padding:0; text-shadow:0 1px 3px rgba(0,0,0,0.7);
+  opacity:0; transition:opacity 0.2s ease;
+}
+.team-slide:hover .team-slide-badge-recruit, .team-slide:focus-visible .team-slide-badge-recruit{ opacity:1; }
+@media (hover:none){ .team-slide-badge-recruit{ opacity:1; } }
 .team-slide-content{ position:absolute; left:0; right:0; bottom:0; z-index:1; padding:1.4rem; display:flex; flex-direction:column; gap:0.2rem; color:#fff; }
 .team-slide-cat{ font-family:"Anton", "Oswald"; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--sand); }
 .team-slide-name{ font-family:"Anton", "Oswald"; font-size:1.6rem; font-weight:400; text-transform:uppercase; line-height:1.05; }
@@ -284,22 +294,22 @@ main > section + section{ border-top:1px solid var(--line); }
 @media (max-width:640px){ .team-modal-tables{ grid-template-columns:1fr; } }
 
 /* ============ EVENT CARDS ============ */
-.event-card-row{ display:grid; grid-template-columns:repeat(4, 1fr); gap:1rem; }
+.event-card-row{ display:grid; grid-template-columns:repeat(4, 1fr); gap:0.85rem; }
 .event-card{
-  position:relative; height:280px; border-radius:var(--radius); overflow:hidden; border:none; cursor:pointer;
-  background-size:cover; background-position:center; padding:1.1rem;
+  position:relative; height:190px; border-radius:var(--radius); overflow:hidden; border:none; cursor:pointer;
+  background-size:cover; background-position:center; padding:0.85rem;
   display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; text-align:left;
   transition:box-shadow 0.2s ease; box-shadow:var(--shadow);
 }
-.event-card::after{ content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,5,20,0.85) 0%, rgba(0,5,20,0.1) 45%, rgba(0,5,20,0.35) 100%); z-index:0; }
+.event-card::after{ content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,5,20,0.92) 0%, rgba(0,5,20,0.1) 55%, rgba(0,5,20,0.4) 100%); z-index:0; }
 .event-card:hover{ filter:brightness(1.05); }
 .event-card:focus-visible{ outline:3px solid var(--sand); outline-offset:2px; }
-.event-card-date{ position:relative; z-index:1; font-family:"Anton", "Oswald"; font-size:0.7rem; letter-spacing:0.04em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,0.4); padding:0.3rem 0.6rem; border-radius:0; }
-.event-card-bottom{ position:relative; z-index:1; display:flex; flex-direction:column; gap:0.2rem; }
-.event-card-meta{ font-family:"Inter"; font-size:0.74rem; color:rgba(255,255,255,0.8); }
-.event-card-name{ font-family:"Anton", "Oswald"; font-size:1.35rem; color:#fff; text-transform:uppercase; line-height:1.05; }
+.event-card-date{ position:relative; z-index:1; font-family:"Anton", "Oswald"; font-size:0.62rem; letter-spacing:0.04em; text-transform:uppercase; color:#fff; background:rgba(0,0,0,0.4); padding:0.25rem 0.5rem; border-radius:0; }
+.event-card-bottom{ position:relative; z-index:1; display:flex; flex-direction:column; gap:0.1rem; }
+.event-card-meta{ font-family:"Inter"; font-size:0.68rem; color:rgba(255,255,255,0.75); }
+.event-card-name{ font-family:"Anton", "Oswald"; font-weight:400; font-size:1.5rem; color:var(--sand); text-transform:uppercase; line-height:1; }
 @media (max-width:900px){ .event-card-row{ grid-template-columns:repeat(2, 1fr); } }
-@media (max-width:520px){ .event-card-row{ grid-template-columns:1fr; } }
+@media (max-width:520px){ .event-card-row{ grid-template-columns:1fr; } .event-card{ height:170px; } }
 
 /* ============ NEWS ============ */
 .press-ring-row{ display:flex; flex-wrap:wrap; gap:1.6rem; justify-content:center; }
@@ -478,7 +488,7 @@ main > section + section{ border-top:1px solid var(--line); }
   .press-ring-photo{ width:88px; height:88px; }
   .press-ring-icon{ width:27px; height:27px; }
   .press-ring-row{ gap:1.1rem; }
-  .event-card{ height:240px; }
+  .event-card{ height:170px; }
   .drawer{ width:min(280px, 88vw); padding:5rem 1.2rem 2rem; }
   .cal-embed{ height:460px; }
 }

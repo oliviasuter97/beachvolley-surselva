@@ -185,29 +185,31 @@ if (pressModal) pressModal.addEventListener('click', (e) => { if (e.target === p
 // Event detail modal — clicking a program tag opens a short info panel
 // with a WhatsApp link to ask about that specific event.
 //
-// TO UPDATE EACH SEASON: edit the "de"/"en" desc text below for new dates,
-// locations and deadlines. "formUrl" is optional — set it when an event has
-// its own sign-up form (e.g. a Google Form, created independently, not tied
-// to any other club website), and leave it out for events that just take a
-// WhatsApp question. The matching date badge on the card itself lives in
-// home.html (search for data-event="..." there) and needs updating too.
+// TO UPDATE EACH SEASON: edit the "de"/"en" facts below for new dates,
+// locations and deadlines — each line (separated by \n) becomes its own
+// bullet point in the popup, so keep each one short. "formUrl" is optional —
+// set it when an event has its own sign-up form (e.g. a Google Form, created
+// independently, not tied to any other club website), and leave it out for
+// events that just take a WhatsApp question. The matching date badge on the
+// card itself lives in home.html (search for data-event="..." there) and
+// needs updating too.
 const eventDetails = {
   'camp-junior': {
-    de: { title: 'Junior Beachvolleyball-Camp', desc: '5-tägiges Trainingscamp für Jugendliche (Jg. 10–18, mind. 10 Trainings vorausgesetzt). Täglich 4–5 Stunden Beachvolleyball: Technik, Taktik, Athletik, plus Abschlussturnier. Übernachtung im Zelt möglich, Verpflegung wählbar.', msg: 'Hallo, ich interessiere mich für das Junior Beachvolleyball-Camp.' },
-    en: { title: 'Junior Beachvolleyball Camp', desc: 'A 5-day training camp for teens (born 2008–2016, at least 10 prior trainings required). 4–5 hours of beach volleyball daily: technique, tactics, athletics, plus a final tournament. Tent accommodation available, meals optional.', msg: "Hi, I'm interested in the Junior Beachvolleyball Camp." },
+    de: { title: 'Junior Beachvolleyball-Camp', desc: '5-tägiges Trainingscamp für Jugendliche (Jg. 10–18)\nMind. 10 Trainings vorausgesetzt\nTäglich 4–5 Stunden: Technik, Taktik, Athletik, plus Abschlussturnier\nÜbernachtung im Zelt möglich, Verpflegung wählbar', msg: 'Hallo, ich interessiere mich für das Junior Beachvolleyball-Camp.' },
+    en: { title: 'Junior Beachvolleyball Camp', desc: 'A 5-day training camp for teens (born 2008–2016)\nAt least 10 prior trainings required\n4–5 hours daily: technique, tactics, athletics, plus a final tournament\nTent accommodation available, meals optional', msg: "Hi, I'm interested in the Junior Beachvolleyball Camp." },
   },
   'camp-auffahrt': {
-    de: { title: 'Beach-Camp Auffahrt', desc: 'Trainingscamp für Erwachsene (ab 18) über Auffahrt. Geleitete Trainings auf allen Niveaus, max. 8 Teilnehmende pro Feld. Camping vor Ort oder eigene Anreise möglich, Verpflegung durch den Camp-Koch.', msg: 'Hallo, ich interessiere mich für das Beach-Camp Auffahrt.' },
-    en: { title: 'Beach Camp Auffahrt', desc: 'A training camp for adults (18+) over the Ascension weekend. Guided training at all levels, max. 8 participants per court. On-site camping or commute, meals by the camp cook.', msg: "Hi, I'm interested in the Beach Camp Auffahrt." },
+    de: { title: 'Beach-Camp Auffahrt', desc: 'Trainingscamp für Erwachsene (ab 18) über Auffahrt\nGeleitete Trainings auf allen Niveaus\nMax. 8 Teilnehmende pro Feld\nCamping vor Ort oder eigene Anreise, Verpflegung durch den Camp-Koch', msg: 'Hallo, ich interessiere mich für das Beach-Camp Auffahrt.' },
+    en: { title: 'Beach Camp Auffahrt', desc: 'A training camp for adults (18+) over the Ascension weekend\nGuided training at all levels\nMax. 8 participants per court\nOn-site camping or commute, meals by the camp cook', msg: "Hi, I'm interested in the Beach Camp Auffahrt." },
   },
   'weihnachtsturnier': {
     formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSd5TWvphdp09jTAKo2AsAb9VvEyswhdAYy5AHTGlIZAuaCCUA/viewform',
-    de: { title: '26. Weihnachts-Mixed-Volleyballturnier', desc: 'Sonntag, 20. Dezember 2026, Turnhallen der Schulhäuser Ilanz. Zwei Kategorien: Freaks (Spieler:innen mit Lizenz bis NLA B) und Plausch (max. 1 lizenzierter Mann oder 2 lizenzierte Frauen pro Team). Anmeldeschluss: 7. Dezember.', msg: 'Hallo, ich habe eine Frage zum Weihnachtsturnier am 20. Dezember.' },
-    en: { title: '26th Christmas Mixed Tournament', desc: 'Sunday, 20 December 2026, school gyms in Ilanz. Two categories: Freaks (licensed players up to NLA B) and Plausch (max. 1 licensed man or 2 licensed women per team). Sign-up deadline: 7 December.', msg: "Hi, I have a question about the Christmas tournament on 20 December." },
+    de: { title: '26. Weihnachts-Mixed-Volleyballturnier', desc: 'Sonntag, 20. Dezember 2026 · Turnhallen der Schulhäuser Ilanz\nFreaks: Spieler:innen mit Lizenz bis NLA B\nPlausch: max. 1 lizenzierter Mann oder 2 lizenzierte Frauen pro Team\nAnmeldeschluss: 7. Dezember', msg: 'Hallo, ich habe eine Frage zum Weihnachtsturnier am 20. Dezember.' },
+    en: { title: '26th Christmas Mixed Tournament', desc: 'Sunday, 20 December 2026 · school gyms in Ilanz\nFreaks: licensed players up to NLA B\nPlausch: max. 1 licensed man or 2 licensed women per team\nSign-up deadline: 7 December', msg: "Hi, I have a question about the Christmas tournament on 20 December." },
   },
   'a2-turnier': {
-    de: { title: 'A2 Beachturnier', desc: 'Seit 2014 organisiert der Beachsportclub Surselva jährlich ein A2-Beachturnier auf vier Feldern in Ilanz: zwei Tage Beachvolleyball auf A2-Niveau mit Schweizer Teams.', msg: 'Hallo, ich interessiere mich für das A2 Beachturnier.' },
-    en: { title: 'A2 Beach Tournament', desc: 'Since 2014, Beachsportclub Surselva has run an annual A2-level beach tournament on four courts in Ilanz: two days of beach volleyball with Swiss teams.', msg: "Hi, I'm interested in the A2 Beach Tournament." },
+    de: { title: 'A2 Beachturnier', desc: 'Jährlich seit 2014\nVier Felder in Ilanz\nZwei Tage Beachvolleyball auf A2-Niveau mit Schweizer Teams', msg: 'Hallo, ich interessiere mich für das A2 Beachturnier.' },
+    en: { title: 'A2 Beach Tournament', desc: 'Run annually since 2014\nFour courts in Ilanz\nTwo days of beach volleyball at A2 level with Swiss teams', msg: "Hi, I'm interested in the A2 Beach Tournament." },
   },
 };
 const eventModal = document.getElementById('eventModal');
@@ -217,7 +219,13 @@ function openEventModal(key) {
   if (!data || !eventModal) return;
   const lang = data[currentLang] || data.de;
   document.getElementById('eventModalTitle').textContent = lang.title;
-  document.getElementById('eventModalDesc').textContent = lang.desc;
+  const descList = document.getElementById('eventModalDesc');
+  descList.innerHTML = '';
+  lang.desc.split('\n').forEach((line) => {
+    const li = document.createElement('li');
+    li.textContent = line;
+    descList.appendChild(li);
+  });
   const waLink = document.getElementById('eventModalCta');
   waLink.href = 'https://wa.me/41787464683?text=' + encodeURIComponent(lang.msg);
   const formLink = document.getElementById('eventModalFormCta');
