@@ -184,6 +184,13 @@ if (pressModal) pressModal.addEventListener('click', (e) => { if (e.target === p
 
 // Event detail modal — clicking a program tag opens a short info panel
 // with a WhatsApp link to ask about that specific event.
+//
+// TO UPDATE EACH SEASON: edit the "de"/"en" desc text below for new dates,
+// locations and deadlines. "formUrl" is optional — set it when an event has
+// its own sign-up form (e.g. a Google Form, created independently, not tied
+// to any other club website), and leave it out for events that just take a
+// WhatsApp question. The matching date badge on the card itself lives in
+// home.html (search for data-event="..." there) and needs updating too.
 const eventDetails = {
   'camp-junior': {
     de: { title: 'Junior Beachvolleyball-Camp', desc: '5-tägiges Trainingscamp für Jugendliche (Jg. 10–18, mind. 10 Trainings vorausgesetzt). Täglich 4–5 Stunden Beachvolleyball: Technik, Taktik, Athletik, plus Abschlussturnier. Übernachtung im Zelt möglich, Verpflegung wählbar.', msg: 'Hallo, ich interessiere mich für das Junior Beachvolleyball-Camp.' },
@@ -339,6 +346,14 @@ if (campPromo && eventsSection) {
 // Team slider — a horizontal, snap-scrolling strip of team photos with
 // prev/next arrows and dots. Clicking a slide opens the detail modal below
 // with standings and roster for the teams that have them.
+//
+// TO UPDATE EACH SEASON: "standings" and "roster" are entered by hand below
+// (no official results source offers an embeddable live widget, so this
+// can't update itself — someone has to copy the numbers over). Update the
+// rows, "season" and "coach" directly here. Teams without standings
+// (youth/Plausch groups) just need "league"/"category" and "training" kept
+// current. The matching card in home.html (search for data-team="...")
+// only needs updating if a team's name, league or training time changes.
 const teamData = {
   damen: {
     photo: 'images/teams/damen.jpg',
