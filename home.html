@@ -39,6 +39,7 @@
   </div>
 </header>
 
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
 <div class="drawer" id="drawer">
   <div class="lang-toggle lang-toggle--drawer" role="group" aria-label="Sprache / Language">
     <button class="lang-btn active" data-lang="de" type="button">DE</button>
@@ -73,7 +74,7 @@
 <div class="modal-overlay" id="pressModal" aria-hidden="true">
   <div class="modal-box press-modal-box" role="dialog" aria-modal="true" aria-label="Presseerwähnung">
     <button class="modal-close" id="pressModalClose" aria-label="Schliessen">✕</button>
-    <div class="press-modal-photo" id="pressModalPhoto"></div>
+    <img class="press-modal-photo" id="pressModalPhoto" alt="">
     <div class="modal-footer">
       <p id="pressModalCaption" style="margin:0;"></p>
     </div>
@@ -229,7 +230,7 @@
               <span class="team-slide-level i18n" data-de="Liga-Niveau" data-en="League level">Liga-Niveau</span>
               <span class="team-slide-cat">Damen</span>
               <span class="team-slide-name">Volley Surselva Damen</span>
-              <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A, Di 19:30–21:15" data-en="4th league, Group A, Tue 19:30–21:15">4. Liga, Gruppe A, Di 19:30–21:15</span>
+              <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A, Di, 19:30 bis 21:15" data-en="4th league, Group A, Tue, 19:30 to 21:15">4. Liga, Gruppe A, Di, 19:30 bis 21:15</span>
               <span class="team-slide-more i18n" data-de="Alle Infos & Tabelle →" data-en="Full info & standings →">Alle Infos & Tabelle →</span>
             </span>
           </button>
@@ -240,7 +241,7 @@
               <span class="team-slide-level i18n" data-de="Liga-Niveau" data-en="League level">Liga-Niveau</span>
               <span class="team-slide-cat">Herren 1</span>
               <span class="team-slide-name">Volley Surselva 1</span>
-              <span class="team-slide-meta i18n" data-de="4. Liga, Fr 20:15–22:00" data-en="4th league, Fri 20:15–22:00">4. Liga, Fr 20:15–22:00</span>
+              <span class="team-slide-meta i18n" data-de="4. Liga, Fr, 20:15 bis 22:00" data-en="4th league, Fri, 20:15 to 22:00">4. Liga, Fr, 20:15 bis 22:00</span>
               <span class="team-slide-more i18n" data-de="Alle Infos & Tabelle →" data-en="Full info & standings →">Alle Infos & Tabelle →</span>
             </span>
           </button>
@@ -250,7 +251,7 @@
               <span class="team-slide-level i18n" data-de="Mit Erfahrung" data-en="Experience helpful">Mit Erfahrung</span>
               <span class="team-slide-cat">Herren 2</span>
               <span class="team-slide-name">Volley Surselva 2</span>
-              <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A, Do 19:00–21:00" data-en="4th league, Group A, Thu 19:00–21:00">4. Liga, Gruppe A, Do 19:00–21:00</span>
+              <span class="team-slide-meta i18n" data-de="4. Liga, Gruppe A, Do, 19:00 bis 21:00" data-en="4th league, Group A, Thu, 19:00 to 21:00">4. Liga, Gruppe A, Do, 19:00 bis 21:00</span>
               <span class="team-slide-more i18n" data-de="Alle Infos & Tabelle →" data-en="Full info & standings →">Alle Infos & Tabelle →</span>
             </span>
           </button>
@@ -260,7 +261,7 @@
             <span class="team-slide-content">
               <span class="team-slide-cat i18n" data-de="Jugend" data-en="Youth">Jugend</span>
               <span class="team-slide-name">Minis</span>
-              <span class="team-slide-meta i18n" data-de="Jg. 2009 u. jünger, Fr 18:00–19:30" data-en="Born 2009 or later, Fri 18:00–19:30">Jg. 2009 u. jünger, Fr 18:00–19:30</span>
+              <span class="team-slide-meta i18n" data-de="Jg. 2009 u. jünger, Fr, 18:00 bis 19:30" data-en="Born 2009 or later, Fri, 18:00 to 19:30">Jg. 2009 u. jünger, Fr, 18:00 bis 19:30</span>
               <span class="team-slide-more i18n" data-de="Alle Infos →" data-en="Full info →">Alle Infos →</span>
             </span>
           </button>
@@ -270,7 +271,7 @@
             <span class="team-slide-content">
               <span class="team-slide-cat i18n" data-de="Jugend" data-en="Youth">Jugend</span>
               <span class="team-slide-name">Juniors</span>
-              <span class="team-slide-meta i18n" data-de="Jg. 2007 u. jünger, Fr 19:00–20:15" data-en="Born 2007 or later, Fri 19:00–20:15">Jg. 2007 u. jünger, Fr 19:00–20:15</span>
+              <span class="team-slide-meta i18n" data-de="Jg. 2007 u. jünger, Fr, 19:00 bis 20:15" data-en="Born 2007 or later, Fri, 19:00 to 20:15">Jg. 2007 u. jünger, Fr, 19:00 bis 20:15</span>
               <span class="team-slide-more i18n" data-de="Alle Infos →" data-en="Full info →">Alle Infos →</span>
             </span>
           </button>
@@ -321,7 +322,8 @@
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow i18n" data-de="In den Medien" data-en="In the media">In den Medien</div>
-        <h2 class="i18n" data-de="News" data-en="News">News</h2>
+        <h2 class="i18n" data-de="Presseschau" data-en="Press coverage">Presseschau</h2>
+        <p class="sec-dek i18n" data-de="Presseerwähnungen von ruinaulta.ch und RTR Sport." data-en="Press mentions from ruinaulta.ch and RTR Sport.">Presseerwähnungen von ruinaulta.ch und RTR Sport.</p>
       </div>
       <div class="press-ring-row">
         <button type="button" class="press-ring" data-photo="images/news/ruinaulta-2022-04-14.jpg">
@@ -345,7 +347,6 @@
           <span class="press-ring-date">17.8.2019</span>
         </a>
       </div>
-      <p class="fine center i18n" data-de="Presseerwähnungen von ruinaulta.ch und RTR Sport." data-en="Press mentions from ruinaulta.ch and RTR Sport.">Presseerwähnungen von ruinaulta.ch und RTR Sport.</p>
     </div>
   </section>
 
@@ -405,7 +406,7 @@
       <div class="section-head">
         <div class="eyebrow i18n" data-de="Trainings & Belegung" data-en="Trainings & schedule">Trainings & Belegung</div>
         <h2 class="i18n" data-de="Wöchentlicher Kalender" data-en="Weekly calendar">Wöchentlicher Kalender</h2>
-        <p class="sec-dek i18n" data-de="Live-Kalender mit allen Terminen, wochenweise. Zum Eintragen braucht es einmalig Zugriff über WhatsApp." data-en="Live calendar with all bookings, week by week. Getting write access just needs a one-time WhatsApp request.">Live-Kalender mit allen Terminen, wochenweise. Zum Eintragen braucht es einmalig Zugriff über WhatsApp.</p>
+        <p class="sec-dek i18n" data-de="Live-Kalender mit allen Terminen, wochenweise. Zum Eintragen braucht es einmalig Zugriff über WhatsApp. Beachfeld: April–September, täglich 8–22 Uhr." data-en="Live calendar with all bookings, week by week. Getting write access just needs a one-time WhatsApp request. Beach court: April–September, daily 8am–10pm.">Live-Kalender mit allen Terminen, wochenweise. Zum Eintragen braucht es einmalig Zugriff über WhatsApp. Beachfeld: April–September, täglich 8–22 Uhr.</p>
       </div>
       <div class="cal-embed-wrap">
         <iframe class="cal-embed" src="https://kalender.digital/60c681d05dbf0801366c?wp_iframe=true" title="Reservationskalender Volley Surselva & Beachsportclub Surselva" loading="lazy"></iframe>
@@ -417,7 +418,6 @@
         </div>
         <a href="#" class="btn btn-primary book-cta i18n" data-de="Zugriff anfragen" data-en="Request access" data-de-msg="Hallo, ich möchte gerne Zugriff auf den Reservationskalender." data-en-msg="Hi, I'd like access to the reservation calendar.">Zugriff anfragen</a>
       </div>
-      <p class="fine center i18n" data-de="Beachfeld: April–September, täglich 8–22 Uhr." data-en="Beach court: April–September, daily 8am–10pm.">Beachfeld: April–September, täglich 8–22 Uhr.</p>
     </div>
   </section>
 
@@ -449,6 +449,15 @@
         <img src="images/snack-time-watermelon.png" alt="Jugendliche geniessen in der Pause frisch geschnittene Wassermelone" loading="lazy">
         <img src="images/morning-sun-at-the-camp.png" alt="Sonnenaufgang über dem ruhigen Campgelände am frühen Morgen" loading="lazy">
         <img src="images/view-out-of-the-tent-looking-at-the-beachvolleyfield.png" alt="Blick aus dem Zelt auf das Beachvolleyfeld und die Berge der Surselva" loading="lazy">
+        <img src="images/junior-camp-group-photo.jpg" alt="Grosses Gruppenfoto aller Teilnehmenden des Junior-Beachcamps vor der Bergkulisse" loading="lazy">
+        <img src="images/beach-courts-evening-golden-hour.jpg" alt="Beachvolleyfelder in Ilanz in der Abendstimmung mit Campern und Zelten" loading="lazy">
+        <img src="images/beach-courts-mountain-view.jpg" alt="Spielerinnen und Spieler auf dem Sandfeld mit Blick auf die Surselva-Berge" loading="lazy">
+        <img src="images/a2-turnier-podium-winners.jpg" alt="Siegerehrung am A2 Beachturnier, Teams feiern gemeinsam im Sand" loading="lazy">
+        <img src="images/a2-turnier-block-action.jpg" alt="Zwei Spielerinnen blocken am Netz beim A2 Beachturnier" loading="lazy">
+        <img src="images/a2-turnier-spike-action.jpg" alt="Spieler springt zum Angriffsschlag am Netz beim A2 Beachturnier" loading="lazy">
+        <img src="images/a2-turnier-serve-action.jpg" alt="Spieler beim Aufschlag am Netz beim A2 Beachturnier" loading="lazy">
+        <img src="images/a2-turnier-double-block.jpg" alt="Doppelblock zweier Spieler am Netz beim A2 Beachturnier" loading="lazy">
+        <img src="images/a2-turnier-attack-action.jpg" alt="Spielerin beim Angriffsschlag am Netz beim A2 Beachturnier" loading="lazy">
       </div>
       </div>
     </div>

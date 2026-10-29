@@ -55,20 +55,25 @@ if (heroTrialCta) {
   });
 }
 
-// Mobile drawer
+// Mobile drawer — the toggle button sits in the fixed header, which is
+// raised above the drawer/backdrop in z-index so it stays visible and
+// clickable (as a close "X") even while the drawer is open.
 const drawerToggle = document.getElementById('drawerToggle');
 const drawer = document.getElementById('drawer');
+const drawerBackdrop = document.getElementById('drawerBackdrop');
 if (drawerToggle && drawer) {
-  drawerToggle.addEventListener('click', () => {
-    const open = drawer.classList.toggle('open');
+  const setDrawerOpen = (open) => {
+    drawer.classList.toggle('open', open);
+    drawerToggle.classList.toggle('open', open);
     drawerToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
+    if (drawerBackdrop) drawerBackdrop.classList.toggle('open', open);
+  };
+  drawerToggle.addEventListener('click', () => setDrawerOpen(!drawer.classList.contains('open')));
   drawer.querySelectorAll('a').forEach((a) => {
-    a.addEventListener('click', () => {
-      drawer.classList.remove('open');
-      drawerToggle.setAttribute('aria-expanded', 'false');
-    });
+    a.addEventListener('click', () => setDrawerOpen(false));
   });
+  if (drawerBackdrop) drawerBackdrop.addEventListener('click', () => setDrawerOpen(false));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setDrawerOpen(false); });
 }
 
 // Hero ball — follows the cursor around the hero, standing in for the
@@ -176,7 +181,7 @@ const pressModalCaption = document.getElementById('pressModalCaption');
 const pressModalClose = document.getElementById('pressModalClose');
 document.querySelectorAll('.press-ring[data-photo]').forEach((btn) => {
   btn.addEventListener('click', () => {
-    pressModalPhoto.style.backgroundImage = `url('${btn.dataset.photo}')`;
+    pressModalPhoto.src = btn.dataset.photo;
     const source = btn.querySelector('.press-ring-source').textContent;
     const date = btn.querySelector('.press-ring-date').textContent;
     pressModalCaption.textContent = `${source}, ${date}`;
@@ -343,8 +348,19 @@ if (!reduced) {
 const campPromo = document.getElementById('campPromo');
 const kontaktSection = document.getElementById('kontakt');
 if (campPromo) {
-  const dismissed = sessionStorage.getItem('campPromoDismissed');
+  let dismissed = sessionStorage.getItem('campPromoDismissed') === '1';
+  const updatePromo = () => {
+    if (dismissed) return;
+    const depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+    let overForm = false;
+    if (kontaktSection) {
+      const r = kontaktSection.getBoundingClientRect();
+      overForm = r.top < window.innerHeight && r.bottom > 0;
+    }
+    campPromo.classList.toggle('show', depth >= 0.5 && !overForm);
+  };
   const hidePromo = () => {
+    dismissed = true;
     campPromo.classList.remove('show');
     sessionStorage.setItem('campPromoDismissed', '1');
   };
@@ -352,15 +368,6 @@ if (campPromo) {
   document.getElementById('campPromoCta').addEventListener('click', hidePromo);
   if (!dismissed) {
     campPromo.hidden = false;
-    const updatePromo = () => {
-      const depth = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
-      let overForm = false;
-      if (kontaktSection) {
-        const r = kontaktSection.getBoundingClientRect();
-        overForm = r.top < window.innerHeight && r.bottom > 0;
-      }
-      campPromo.classList.toggle('show', depth >= 0.5 && !overForm);
-    };
     window.addEventListener('scroll', updatePromo, { passive: true });
     updatePromo();
   }
@@ -382,7 +389,7 @@ const teamData = {
     photo: 'images/teams/damen.jpg',
     name: 'Volley Surselva Damen',
     league: { de: '4. Liga, Gruppe A', en: '4th league, Group A' },
-    training: { de: 'Di 19:30–21:15', en: 'Tue 19:30–21:15' },
+    training: { de: 'Di, 19:30 bis 21:15', en: 'Tue, 19:30 to 21:15' },
     signupHref: '#kontakt',
     season: '2025/26',
     standings: [
@@ -405,7 +412,7 @@ const teamData = {
     photo: null,
     name: 'Volley Surselva 1',
     league: { de: '4. Liga', en: '4th league' },
-    training: { de: 'Fr 20:15–22:00', en: 'Fri 20:15–22:00' },
+    training: { de: 'Fr, 20:15 bis 22:00', en: 'Fri, 20:15 to 22:00' },
     signupHref: '#kontakt',
     season: '2022/23',
     standings: [
@@ -426,7 +433,7 @@ const teamData = {
     photo: 'images/teams/herren-2.jpg',
     name: 'Volley Surselva 2',
     league: { de: '4. Liga, Gruppe A', en: '4th league, Group A' },
-    training: { de: 'Do 19:00–21:00', en: 'Thu 19:00–21:00' },
+    training: { de: 'Do, 19:00 bis 21:00', en: 'Thu, 19:00 to 21:00' },
     signupHref: '#kontakt',
     season: '2023/24',
     standings: [
@@ -447,14 +454,14 @@ const teamData = {
     photo: null,
     name: 'Minis',
     category: { de: 'Jg. 2009 u. jünger', en: 'Born 2009 or later' },
-    training: { de: 'Fr 18:00–19:30', en: 'Fri 18:00–19:30' },
+    training: { de: 'Fr, 18:00 bis 19:30', en: 'Fri, 18:00 to 19:30' },
     signupHref: 'anmeldung-jugend.html',
   },
   juniors: {
     photo: null,
     name: 'Juniors',
     category: { de: 'Jg. 2007 u. jünger', en: 'Born 2007 or later' },
-    training: { de: 'Fr 19:00–20:15', en: 'Fri 19:00–20:15' },
+    training: { de: 'Fr, 19:00 bis 20:15', en: 'Fri, 19:00 to 20:15' },
     signupHref: 'anmeldung-jugend.html',
   },
   u18frauen: {
