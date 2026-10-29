@@ -424,7 +424,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .social-icon span{ font-size:0.72rem; font-family:"Anton", "Oswald"; letter-spacing:0.02em; }
 
 /* ============ SPONSORS ============ */
-.sponsor-strip{ background:rgba(255,255,255,0.9); padding:2rem 0; overflow:hidden; }
+.sponsor-strip{ background:linear-gradient(180deg, #eef1fa 0%, #e2e8f6 100%); padding:2rem 0; overflow:hidden; }
 .sponsor-strip .eyebrow{ text-align:center; color:var(--sand-deep); }
 .sponsor-viewport{
   overflow:hidden; width:100%; margin-top:1.4rem;
