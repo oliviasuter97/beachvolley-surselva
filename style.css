@@ -73,6 +73,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .zone-beach{ border-left-color:var(--sand-deep); }
 .zone-beach .stat-block{ background:rgba(207,154,92,0.1); border-color:rgba(207,154,92,0.3); }
 .section-narrow{ max-width:760px; margin:0 auto; padding:2.5rem 1.75rem; text-align:center; }
+.section-narrow .sec-dek{ margin-left:auto; margin-right:auto; }
 .section-head{ margin-bottom:1.1rem; }
 .section-head.center{ text-align:center; }
 .section-head.center .sec-dek{ margin-left:auto; margin-right:auto; }
@@ -80,6 +81,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .sec-dek{ color:var(--ink-muted); max-width:60ch; }
 .lead{ font-size:1.15rem; color:var(--ink-muted); max-width:62ch; margin:0 auto; }
 .fine{ font-size:0.85rem; color:var(--ink-muted); }
+.cal-note{ font-size:0.85rem; color:var(--sand-deep); margin:0; }
 .eyebrow{ font-family:"Anton", "Oswald", sans-serif; font-size:0.78rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--sand-deep); margin-bottom:0.4rem; }
 
 /* ============ LANGUAGE TOGGLE ============
@@ -361,8 +363,7 @@ main > section + section{ border-top:1px solid var(--line); }
 .board-row{ display:flex; align-items:center; flex-wrap:wrap; gap:0.7rem; margin-bottom:0.8rem; padding-bottom:0.8rem; border-bottom:1px solid var(--line); }
 .board-row:last-child{ margin-bottom:0; border-bottom:none; }
 .board-club-label{ font-family:"Anton", "Oswald"; font-size:0.72rem; letter-spacing:0.05em; text-transform:uppercase; width:100%; margin-bottom:0.2rem; }
-.board-club-label-indoor{ color:var(--navy); }
-:root[data-theme="dark"] .board-club-label-indoor{ color:var(--sand); }
+.board-club-label-indoor{ color:var(--sand); }
 .board-club-label-beach{ color:var(--sand-deep); }
 .board-chip{ display:flex; align-items:center; gap:0.55rem; background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius); padding:0.35rem 0.9rem 0.35rem 0.35rem; font-size:0.82rem; }
 .board-chip strong{ color:var(--ink); font-weight:600; }
@@ -388,8 +389,7 @@ main > section + section{ border-top:1px solid var(--line); }
 /* ============ TWO COL / STATS ============ */
 .two-col{ display:grid; grid-template-columns:1.4fr 1fr; gap:2.5rem; align-items:center; }
 .stat-block{ text-align:center; background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius); padding:1.4rem 1rem; box-shadow:var(--shadow); }
-.stat-block .num{ display:block; font-family:"Anton", "Oswald"; font-weight:400; font-size:6.5rem; line-height:0.9; color:var(--navy); }
-:root[data-theme="dark"] .stat-block .num, @media (prefers-color-scheme:dark){ .stat-block .num{ color:var(--sand);} }
+.stat-block .num{ display:block; font-family:"Anton", "Oswald"; font-weight:400; font-size:6.5rem; line-height:0.9; color:var(--sand); }
 .stat-block .cap{ font-family:"Anton", "Oswald"; font-size:1rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-muted); }
 
 /* ============ BEACH-ANLAGE ============ */

@@ -205,20 +205,26 @@ if (pressModal) pressModal.addEventListener('click', (e) => { if (e.target === p
 // bullet point in the popup, so keep each one short. "formUrl" is optional —
 // set it when an event has its own sign-up form (e.g. a Google Form, created
 // independently, not tied to any other club website), and leave it out for
-// events that just take a WhatsApp question. The matching date badge on the
+// events that just take a WhatsApp question. "flyerUrl" is optional too —
+// a local file path (e.g. under docs/) to a downloadable PDF with the full
+// rules/programme; never link a PDF hosted on volleysurselva.ch directly,
+// since that site will eventually be taken down — download it and add it
+// to this project's docs/ folder instead. The matching date badge on the
 // card itself lives in home.html (search for data-event="..." there) and
 // needs updating too.
 const eventDetails = {
   'camp-junior': {
-    de: { title: 'Junior Beachvolleyball-Camp', desc: '5-tägiges Trainingscamp für Jugendliche (Jg. 10–18)\nMind. 10 Trainings vorausgesetzt\nTäglich 4–5 Stunden: Technik, Taktik, Athletik, plus Abschlussturnier\nÜbernachtung im Zelt möglich, Verpflegung wählbar', msg: 'Hallo, ich interessiere mich für das Junior Beachvolleyball-Camp.' },
-    en: { title: 'Junior Beachvolleyball Camp', desc: 'A 5-day training camp for teens (born 2008–2016)\nAt least 10 prior trainings required\n4–5 hours daily: technique, tactics, athletics, plus a final tournament\nTent accommodation available, meals optional', msg: "Hi, I'm interested in the Junior Beachvolleyball Camp." },
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScMeIJMsxH9-g2saJaOBJJpndllK1HNWhUVWlPBVfHV5NAuEg/viewform',
+    de: { title: 'Junior Beachvolleyball-Camp', desc: 'Camp 1: 2.–6. August 2027, Camp 2: 9.–13. August 2027\nFür Jg. 10–18 (max. 48 pro Woche), auch für Anfänger:innen\nGrundangebot: Training, T-Shirt, Ball, Badi-Eintritt, ab CHF 310.-\nOptional buchbar: Verpflegung, Zelt-Übernachtung, Rafting', msg: 'Hallo, ich interessiere mich für das Junior Beachvolleyball-Camp.' },
+    en: { title: 'Junior Beachvolleyball Camp', desc: 'Camp 1: 2–6 August 2027, Camp 2: 9–13 August 2027\nAges 10–18 (max. 48 per week), beginners welcome\nBase package: training, T-shirt, ball, pool entry, from CHF 310\nOptional add-ons: meals, tent accommodation, rafting', msg: "Hi, I'm interested in the Junior Beachvolleyball Camp." },
   },
   'camp-auffahrt': {
-    de: { title: 'Beach-Camp Auffahrt', desc: 'Trainingscamp für Erwachsene (ab 18) über Auffahrt\nGeleitete Trainings auf allen Niveaus\nMax. 8 Teilnehmende pro Feld\nCamping vor Ort oder eigene Anreise, Verpflegung durch den Camp-Koch', msg: 'Hallo, ich interessiere mich für das Beach-Camp Auffahrt.' },
-    en: { title: 'Beach Camp Auffahrt', desc: 'A training camp for adults (18+) over the Ascension weekend\nGuided training at all levels\nMax. 8 participants per court\nOn-site camping or commute, meals by the camp cook', msg: "Hi, I'm interested in the Beach Camp Auffahrt." },
+    de: { title: 'Beach-Camp Auffahrt', desc: 'Jeweils über Auffahrt (Mai), für Erwachsene ab 18\nGeleitete Trainings 10–12 & 14–16 Uhr, alle Niveaus, max. 8 pro Feld\nZelt, Camper oder eigene Anreise, Verpflegung wählbar\nGrundleistung ab CHF 320.- für 4 Tage', msg: 'Hallo, ich interessiere mich für das Beach-Camp Auffahrt.' },
+    en: { title: 'Beach Camp Auffahrt', desc: 'Held each year over the Ascension weekend (May), for adults 18+\nGuided training 10am–12pm & 2–4pm, all levels, max. 8 per court\nTent, camper or your own arrangement, meals optional\nBase package from CHF 320 for 4 days', msg: "Hi, I'm interested in the Beach Camp Auffahrt." },
   },
   'weihnachtsturnier': {
     formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSd5TWvphdp09jTAKo2AsAb9VvEyswhdAYy5AHTGlIZAuaCCUA/viewform',
+    flyerUrl: 'docs/weihnachtsturnier-ausschreibung-2026.pdf',
     de: { title: '26. Weihnachts-Mixed-Volleyballturnier', desc: 'Sonntag, 20. Dezember 2026 · Turnhallen der Schulhäuser Ilanz\nFreaks: Spieler:innen mit Lizenz bis NLA B\nPlausch: max. 1 lizenzierter Mann oder 2 lizenzierte Frauen pro Team\nAnmeldeschluss: 7. Dezember', msg: 'Hallo, ich habe eine Frage zum Weihnachtsturnier am 20. Dezember.' },
     en: { title: '26th Christmas Mixed Tournament', desc: 'Sunday, 20 December 2026 · school gyms in Ilanz\nFreaks: licensed players up to NLA B\nPlausch: max. 1 licensed man or 2 licensed women per team\nSign-up deadline: 7 December', msg: "Hi, I have a question about the Christmas tournament on 20 December." },
   },
@@ -253,6 +259,13 @@ function openEventModal(key) {
     formLink.hidden = true;
     waLink.classList.remove('btn-secondary');
     waLink.classList.add('btn-primary');
+  }
+  const flyerLink = document.getElementById('eventModalFlyerCta');
+  if (data.flyerUrl) {
+    flyerLink.href = data.flyerUrl;
+    flyerLink.hidden = false;
+  } else {
+    flyerLink.hidden = true;
   }
   eventModal.classList.add('open');
   eventModal.setAttribute('aria-hidden', 'false');
